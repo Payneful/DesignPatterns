@@ -9,6 +9,9 @@
 
 #pragma once
 #include "point.h"
+#include "Mediator.h"
+
+class Colleague;              // For circular dependencies
 
 /**********************
  * BIRD
@@ -17,12 +20,13 @@
 class Bird
 {
 protected:
-   static Point dimensions; // size of the screen
+   static Point dimensions;   // size of the screen
    Point pt;                  // position of the flyer
    Velocity v;                // velocity of the flyer
    double radius;             // the size (radius) of the flyer
    bool dead;                 // is this flyer dead?
    int points;                // how many points is this worth?
+   Colleague * pCollegue;
    
 public:
    Bird() : dead(false), points(0), radius(1.0) { }
@@ -43,6 +47,8 @@ public:
       return (pt.getX() < -radius || pt.getX() >= dimensions.getX() + radius ||
               pt.getY() < -radius || pt.getY() >= dimensions.getY() + radius);
    }
+   
+   void wasShot(); //same function as kill()?
 
    // special functions
    virtual void draw() = 0;

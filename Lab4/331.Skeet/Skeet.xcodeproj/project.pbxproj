@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		906F2B74290354A70076394E /* Mediator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 906F2B73290354A70076394E /* Mediator.cpp */; };
 		C15451E627403ED30095997B /* effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15451E527403ED30095997B /* effect.cpp */; };
 		C16B8F522744ABDE009CC1DC /* score.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C16B8F502744ABDE009CC1DC /* score.cpp */; };
 		C16F25492716733A000FA407 /* time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C16F25482716733A000FA407 /* time.cpp */; };
@@ -34,6 +35,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		906F2B73290354A70076394E /* Mediator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Mediator.cpp; path = ../../Lab6/Mediator/Mediator.cpp; sourceTree = "<group>"; };
+		906F2B75290355B10076394E /* Mediator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Mediator.h; path = ../../Lab6/Mediator/Mediator.h; sourceTree = "<group>"; };
 		C15451E427403CD70095997B /* effect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = effect.h; sourceTree = "<group>"; };
 		C15451E527403ED30095997B /* effect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = effect.cpp; sourceTree = "<group>"; };
 		C159391D271E278800A7F857 /* bullet.h */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.c.h; path = bullet.h; sourceTree = "<group>"; tabWidth = 3; };
@@ -74,6 +77,8 @@
 		C1D4EACA2577F487002B56E3 = {
 			isa = PBXGroup;
 			children = (
+				906F2B75290355B10076394E /* Mediator.h */,
+				906F2B73290354A70076394E /* Mediator.cpp */,
 				C16B8F532744AFD8009CC1DC /* score.h */,
 				C16B8F502744ABDE009CC1DC /* score.cpp */,
 				C15451E527403ED30095997B /* effect.cpp */,
@@ -174,6 +179,7 @@
 				C16B8F522744ABDE009CC1DC /* score.cpp in Sources */,
 				C1D4EAED2577F57B002B56E3 /* uiInteract.cpp in Sources */,
 				C184132A273E9C4900143AB2 /* bullet.cpp in Sources */,
+				906F2B74290354A70076394E /* Mediator.cpp in Sources */,
 				C15451E627403ED30095997B /* effect.cpp in Sources */,
 				C184132C273E9C4900143AB2 /* bird.cpp in Sources */,
 				C1D4EAEA2577F57B002B56E3 /* point.cpp in Sources */,
