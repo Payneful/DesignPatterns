@@ -27,6 +27,7 @@
     <ClCompile Include="point.cpp" />
     <ClCompile Include="score.cpp" />
     <ClCompile Include="skeet.cpp" />
+    <ClCompile Include="ApplyImpulse.cpp" />
     <ClCompile Include="time.cpp" />
     <ClCompile Include="uiInteract.cpp" />
   </ItemGroup>
@@ -35,6 +36,7 @@
     <ClInclude Include="bird.h" />
     <ClInclude Include="effect.h" />
     <ClInclude Include="gun.h" />
+    <ClInclude Include="ApplyImpulse.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="score.h" />
     <ClInclude Include="skeet.h" />

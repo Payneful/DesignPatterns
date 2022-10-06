@@ -77,6 +77,8 @@ void Bullet::move(std::list<Effect*> & effects)
    // out of bounds checker
    if (isOutOfBounds())
       kill();
+
+  
 }
 
 /*********************************************

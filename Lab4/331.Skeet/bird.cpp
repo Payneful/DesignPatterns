@@ -9,6 +9,7 @@
 
 #include <cassert>
 #include "bird.h"
+#include "ApplyImpulse.h"
 
 #ifdef __APPLE__
 #define GL_SILENCE_DEPRECATION
@@ -90,6 +91,14 @@ Standard::Standard(double radius, double speed, int points) : Bird()
  ******************************************************************/
 Floater::Floater(double radius, double speed, int points) : Bird()
 {
+    // NEW
+    impulses.push_back(ApplyBuoyancy);
+    impulses.push_back(ApplyDrag);
+    impulses.push_back(ApplyDrag);
+    impulses.push_back(ApplyInertia);
+
+    //
+    /**************************************** OLD
    // floaters start on the lower part of the screen because they go up with time
    pt.setY(randomFloat(dimensions.getY() * 0.01, dimensions.getY() * 0.5));
    pt.setX(0.0);
@@ -103,6 +112,7 @@ Floater::Floater(double radius, double speed, int points) : Bird()
 
    // set the size
    this->radius = radius;
+   *********************************************/
 }
 
 /******************************************************************
@@ -110,6 +120,11 @@ Floater::Floater(double radius, double speed, int points) : Bird()
  ******************************************************************/
 Sinker::Sinker(double radius, double speed, int points) : Bird()
 {
+    // NEW
+    
+
+    //
+    /**************************************** OLD
    // sinkers start on the upper part of the screen because they go down with time
    pt.setY(randomFloat(dimensions.getY() * 0.50, dimensions.getY() * 0.95));
    pt.setX(0.0);
@@ -123,6 +138,7 @@ Sinker::Sinker(double radius, double speed, int points) : Bird()
 
    // set the size
    this->radius = radius;
+   *********************************************/
 }
 
 /******************************************************************
@@ -130,6 +146,11 @@ Sinker::Sinker(double radius, double speed, int points) : Bird()
  ******************************************************************/
 Crazy::Crazy(double radius, double speed, int points) : Bird()
 {
+    // NEW
+
+    //
+    // 
+    /**************************************** OLD
    // crazy birds start in the middle and can go any which way
    pt.setY(randomFloat(dimensions.getY() * 0.25, dimensions.getY() * 0.75));
    pt.setX(0.0);
@@ -143,6 +164,7 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
 
    // set the size
    this->radius = radius;
+   *********************************************/
 }
 
  /***************************************************************/
@@ -151,10 +173,17 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
  /***************************************************************/
  /***************************************************************/
 
+void Bird::advance()
+{
+    for (auto impulse in impulses) {
+        impulse.ApplyImpulse(this)
+    }
+}
+
 /*********************************************
  * STANDARD ADVANCE
  * How the standard bird moves - inertia and drag
- *********************************************/
+ 
 void Standard::advance()
 {
    // small amount of drag
@@ -170,11 +199,11 @@ void Standard::advance()
       points *= -1; // points go negative when it is missed!
    }
 }
-
+*********************************************/
 /*********************************************
  * FLOATER ADVANCE
  * How the floating bird moves: strong drag and anti-gravity
- *********************************************/
+ 
 void Floater::advance()
 {
    // large amount of drag
@@ -193,11 +222,11 @@ void Floater::advance()
       points *= -1; // points go negative when it is missed!
    }
 }
-
+*********************************************/
 /*********************************************
  * CRAZY ADVANCE
  * How the crazy bird moves, every half a second it changes direciton
- *********************************************/
+
 void Crazy::advance()
 {
    // erratic turns eery half a second or so
@@ -217,11 +246,11 @@ void Crazy::advance()
       points *= -1; // points go negative when it is missed!
    }
 }
-
+ *********************************************/
 /*********************************************
  * SINKER ADVANCE
  * How the sinker bird moves, no drag but gravity
- *********************************************/
+ 
 void Sinker::advance()
 {
    // gravity
@@ -237,7 +266,7 @@ void Sinker::advance()
       points *= -1; // points go negative when it is missed!
    }
 }
-
+*********************************************/
 /***************************************************************/
 /***************************************************************/
 /*                             DRAW                            */

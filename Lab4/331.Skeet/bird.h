@@ -8,6 +8,8 @@
  ************************************************************************/
 
 #pragma once
+#include "ApplyImpulse.h"
+#include <list>
 #include "point.h"
 
 /**********************
@@ -23,7 +25,8 @@ protected:
    double radius;             // the size (radius) of the flyer
    bool dead;                 // is this flyer dead?
    int points;                // how many points is this worth?
-   // test
+   list<ApplyImpulse*> impulses;          // Impulses
+   
    
 public:
    Bird() : dead(false), points(0), radius(1.0) { }
@@ -32,6 +35,7 @@ public:
    void operator=(const Point    & rhs) { pt = rhs;    }
    void operator=(const Velocity & rhs) { v = rhs;     }
    void kill()                          { dead = true; }
+   void advance();
 
    // getters
    bool isDead()           const { return dead;   }
@@ -44,10 +48,11 @@ public:
       return (pt.getX() < -radius || pt.getX() >= dimensions.getX() + radius ||
               pt.getY() < -radius || pt.getY() >= dimensions.getY() + radius);
    }
+   int randomInt(int min, int max) {};
 
    // special functions
    virtual void draw() = 0;
-   virtual void advance() = 0;
+   
 };
 
 /*********************************************
@@ -59,7 +64,7 @@ class Standard : public Bird
 public:
     Standard(double radius = 25.0, double speed = 5.0, int points = 10);
     void draw();
-    void advance();
+    //void advance();
 };
 
 /*********************************************
@@ -71,7 +76,7 @@ class Floater : public Bird
 public:
     Floater(double radius = 30.0, double speed = 5.0, int points = 15);
     void draw();
-    void advance();
+    //void advance();
 };
 
 /*********************************************
@@ -83,7 +88,7 @@ class Crazy : public Bird
 public:
     Crazy(double radius = 30.0, double speed = 4.5, int points = 30);
     void draw();
-    void advance();
+    //void advance();
 };
 
 /*********************************************
@@ -95,5 +100,5 @@ class Sinker : public Bird
 public:
     Sinker(double radius = 30.0, double speed = 4.5, int points = 20);
     void draw();
-    void advance();
+    //void advance();
 };
