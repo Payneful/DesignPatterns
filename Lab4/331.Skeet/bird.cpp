@@ -176,7 +176,7 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
 void Bird::advance()
 {
     for (auto impulse in impulses) {
-        impulse.ApplyImpulse(this)
+        impulse.ApplyImpulse(this);
     }
 }
 
