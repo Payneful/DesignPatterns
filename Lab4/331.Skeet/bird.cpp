@@ -337,3 +337,11 @@ void Sinker::draw()
       drawDisk(pt, radius - 4.0, 0.0, 0.0, 0.0);
    }
 }
+
+void StandardAdvance::drag() {
+    v = v * 0.995;
+}
+
+void SinkerAdvance::buoyancy() {
+    v = v * 0.995;
+}

@@ -23,6 +23,7 @@ protected:
    double radius;             // the size (radius) of the flyer
    bool dead;                 // is this flyer dead?
    int points;                // how many points is this worth?
+
    
 public:
    Bird() : dead(false), points(0), radius(1.0) { }
@@ -95,4 +96,37 @@ public:
     Sinker(double radius = 30.0, double speed = 4.5, int points = 20);
     void draw();
     void advance();
+};
+
+class Advance : Bird {
+public:
+    void advance();
+
+private:
+    void inertia();
+
+    virtual void drag() = 0;
+    virtual void buoancy() = 0;
+    virtual void turn() = 0;
+};
+
+class StandardAdvance : Advance {
+private:
+    void drag();
+};
+
+class SinkerAdvance : Advance {
+private:
+    void buoyancy();
+};
+
+class FloaterAdvance : Advance {
+private:
+    void drag();
+    void buoyancy();
+};
+
+class CrazyAdvance : Advance {
+private:
+    void turn();
 };
