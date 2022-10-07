@@ -9,6 +9,40 @@
 
 #pragma once
 #include "point.h"
+class Bird;
+
+class Advance {
+public:
+    void advance(Bird * bird);
+
+private:
+    void inertia(Bird * bird);
+
+    virtual void drag(Bird * bird) {};
+    virtual void buoyancy(Bird * bird) {};
+    virtual void turn(Bird * bird) {};
+};
+
+class StandardAdvance : Advance {
+private:
+    void drag(Bird * bird);
+};
+
+class SinkerAdvance : Advance {
+private:
+    void buoyancy(Bird * bird);
+};
+
+class FloaterAdvance : Advance {
+private:
+    void drag(Bird * bird);
+    void buoyancy(Bird * bird);
+};
+
+class CrazyAdvance : Advance {
+private:
+    void turn(Bird * bird);
+};
 
 /**********************
  * BIRD
@@ -23,6 +57,7 @@ protected:
    double radius;             // the size (radius) of the flyer
    bool dead;                 // is this flyer dead?
    int points;                // how many points is this worth?
+   Advance adv;
 
    
 public:
@@ -47,7 +82,7 @@ public:
 
    // special functions
    virtual void draw() = 0;
-   virtual void advance() = 0;
+   virtual void advance() {};
 };
 
 /*********************************************
@@ -71,7 +106,7 @@ class Floater : public Bird
 public:
     Floater(double radius = 30.0, double speed = 5.0, int points = 15);
     void draw();
-    void advance();
+//    void advance();
 };
 
 /*********************************************
@@ -83,7 +118,7 @@ class Crazy : public Bird
 public:
     Crazy(double radius = 30.0, double speed = 4.5, int points = 30);
     void draw();
-    void advance();
+//    void advance();
 };
 
 /*********************************************
@@ -95,38 +130,5 @@ class Sinker : public Bird
 public:
     Sinker(double radius = 30.0, double speed = 4.5, int points = 20);
     void draw();
-    void advance();
-};
-
-class Advance : Bird {
-public:
-    void advance();
-
-private:
-    void inertia();
-
-    virtual void drag() = 0;
-    virtual void buoancy() = 0;
-    virtual void turn() = 0;
-};
-
-class StandardAdvance : Advance {
-private:
-    void drag();
-};
-
-class SinkerAdvance : Advance {
-private:
-    void buoyancy();
-};
-
-class FloaterAdvance : Advance {
-private:
-    void drag();
-    void buoyancy();
-};
-
-class CrazyAdvance : Advance {
-private:
-    void turn();
+//    void advance();
 };

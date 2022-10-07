@@ -9,6 +9,7 @@
 
 #include <cassert>
 #include "bird.h"
+#include <random>
 
 #ifdef __APPLE__
 #define GL_SILENCE_DEPRECATION
@@ -150,93 +151,96 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
  /*                            ADVANCE                          */
  /***************************************************************/
  /***************************************************************/
-
+//void Bird::advance() {
+//    adv.advance(this);
+//}
 /*********************************************
  * STANDARD ADVANCE
  * How the standard bird moves - inertia and drag
  *********************************************/
 void Standard::advance()
 {
-   // small amount of drag
-   v *= 0.995;
-
-   // inertia
-   pt.add(v);
-
-   // out of bounds checker
-   if (isOutOfBounds())
-   {
-      kill();
-      points *= -1; // points go negative when it is missed!
-   }
+//   // small amount of drag
+//   v *= 0.995;
+//
+//   // inertia
+//   pt.add(v);
+//
+//   // out of bounds checker
+//   if (isOutOfBounds())
+//   {
+//      kill();
+//      points *= -1; // points go negative when it is missed!
+//   }
+    adv.advance(this);
 }
 
-/*********************************************
- * FLOATER ADVANCE
- * How the floating bird moves: strong drag and anti-gravity
- *********************************************/
-void Floater::advance()
-{
-   // large amount of drag
-   v *= 0.990;
-
-   // inertia
-   pt.add(v);
-
-   // anti-gravity
-   v.addDy(0.05);
-
-   // out of bounds checker
-   if (isOutOfBounds())
-   {
-      kill();
-      points *= -1; // points go negative when it is missed!
-   }
-}
-
-/*********************************************
- * CRAZY ADVANCE
- * How the crazy bird moves, every half a second it changes direciton
- *********************************************/
-void Crazy::advance()
-{
-   // erratic turns eery half a second or so
-   if (randomInt(0, 15) == 0)
-   {
-      v.addDy(randomFloat(-1.5, 1.5));
-      v.addDx(randomFloat(-1.5, 1.5));
-   }
-
-   // inertia
-   pt.add(v);
-
-   // out of bounds checker
-   if (isOutOfBounds())
-   {
-      kill();
-      points *= -1; // points go negative when it is missed!
-   }
-}
-
-/*********************************************
- * SINKER ADVANCE
- * How the sinker bird moves, no drag but gravity
- *********************************************/
-void Sinker::advance()
-{
-   // gravity
-   v.addDy(-0.07);
-
-   // inertia
-   pt.add(v);
-
-   // out of bounds checker
-   if (isOutOfBounds())
-   {
-      kill();
-      points *= -1; // points go negative when it is missed!
-   }
-}
+///*********************************************
+// * FLOATER ADVANCE
+// * How the floating bird moves: strong drag and anti-gravity
+// *********************************************/
+//void Floater::advance()
+//{
+//   // large amount of drag
+//   v *= 0.990;
+//
+//   // inertia
+//   pt.add(v);
+//
+//   // anti-gravity
+//   v.addDy(0.05);
+//
+//   // out of bounds checker
+//   if (isOutOfBounds())
+//   {
+//      kill();
+//      points *= -1; // points go negative when it is missed!
+//   }
+//}
+//
+///*********************************************
+// * CRAZY ADVANCE
+// * How the crazy bird moves, every half a second it changes direciton
+// *********************************************/
+//void Crazy::advance()
+//{
+//   // erratic turns eery half a second or so
+//   if (randomInt(0, 15) == 0)
+//   {
+//      v.addDy(randomFloat(-1.5, 1.5));
+//      v.addDx(randomFloat(-1.5, 1.5));
+//   }
+//
+//   // inertia
+//   pt.add(v);
+//
+//   // out of bounds checker
+//   if (isOutOfBounds())
+//   {
+//      kill();
+//      points *= -1; // points go negative when it is missed!
+//   }
+//}
+//
+///*********************************************
+// * SINKER ADVANCE
+// * How the sinker bird moves, no drag but gravity
+// *********************************************/
+//void Sinker::advance()
+//{
+//   // gravity
+//   v.addDy(-0.07);
+//
+//   // inertia
+//   pt.add(v);
+//
+//   // out of bounds checker
+//   if (isOutOfBounds())
+//   {
+//      kill();
+//      points *= -1; // points go negative when it is missed!
+//   }
+//}
 
 /***************************************************************/
 /***************************************************************/
@@ -338,10 +342,46 @@ void Sinker::draw()
    }
 }
 
-void StandardAdvance::drag() {
-    v = v * 0.995;
+void Advance::advance(Bird * bird) {
+    inertia(bird);
+    drag(bird);
+    buoyancy(bird);
+    turn(bird);
+
+    if(bird->isOutOfBounds()) {
+        bird->kill();
+    }
 }
 
-void SinkerAdvance::buoyancy() {
-    v = v * 0.995;
+void Advance::inertia(Bird * bird) {
+//    std::cout << "INERTIA!!\n";
+    bird->getPosition().add(bird->getVelocity());
+}
+
+void StandardAdvance::drag(Bird * bird) {
+    std::cout << "STANDARD DRAG\n";
+    bird->getVelocity() *= 0.995;
+}
+
+void SinkerAdvance::buoyancy(Bird * bird) {
+    std::cout << "SINKER BUOYANCY\n";
+    bird->getVelocity().addDy(-0.07);
+}
+
+void FloaterAdvance::drag(Bird * bird) {
+    std::cout << "FLOATER DRAG\n";
+    bird->getVelocity() *= 0.99;
+}
+
+void FloaterAdvance::buoyancy(Bird * bird) {
+    std::cout << "FLOATER BUOYANCY\n";
+    bird->getVelocity().addDy(-0.05);
+}
+
+void CrazyAdvance::turn(Bird * bird) {
+    std::cout << "CRAZY TURN\n";
+    if(randomInt(0, 15) == 0) {
+        bird->getVelocity().addDy(randomInt(-1.5, 1.5));
+        bird->getVelocity().addDx(randomInt(-1.5, 1.5));
+    }
 }
