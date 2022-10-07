@@ -1,0 +1,11 @@
+﻿  bird.cpp
+C:\Users\Brad\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(123,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Brad\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(165,1): warning C4305: 'argument': truncation from 'double' to 'float'
+  game.cpp
+C:\Users\Brad\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(123,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Brad\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(165,1): warning C4305: 'argument': truncation from 'double' to 'float'
+  skeet.cpp
+C:\Users\Brad\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(123,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Brad\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(165,1): warning C4305: 'argument': truncation from 'double' to 'float'
+  Generating Code...
+  Skeet.vcxproj -> C:\Users\Brad\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\x64\Debug\Skeet.exe

@@ -157,18 +157,8 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
  *********************************************/
 void Standard::advance()
 {
-   // small amount of drag
-   v *= 0.995;
-
-   // inertia
-   pt.add(v);
-
-   // out of bounds checker
-   if (isOutOfBounds())
-   {
-      kill();
-      points *= -1; // points go negative when it is missed!
-   }
+   adv = new Inertia;
+   adv->advance(*this, points);
 }
 
 /*********************************************
@@ -177,21 +167,8 @@ void Standard::advance()
  *********************************************/
 void Floater::advance()
 {
-   // large amount of drag
-   v *= 0.990;
-
-   // inertia
-   pt.add(v);
-
-   // anti-gravity
-   v.addDy(0.05);
-
-   // out of bounds checker
-   if (isOutOfBounds())
-   {
-      kill();
-      points *= -1; // points go negative when it is missed!
-   }
+   adv = new Buoyancy;
+   adv->advance(*this, points);
 }
 
 /*********************************************
@@ -200,22 +177,8 @@ void Floater::advance()
  *********************************************/
 void Crazy::advance()
 {
-   // erratic turns eery half a second or so
-   if (randomInt(0, 15) == 0)
-   {
-      v.addDy(randomFloat(-1.5, 1.5));
-      v.addDx(randomFloat(-1.5, 1.5));
-   }
-
-   // inertia
-   pt.add(v);
-
-   // out of bounds checker
-   if (isOutOfBounds())
-   {
-      kill();
-      points *= -1; // points go negative when it is missed!
-   }
+   adv = new Chaos;
+   adv->advance(*this, points);
 }
 
 /*********************************************
@@ -224,18 +187,8 @@ void Crazy::advance()
  *********************************************/
 void Sinker::advance()
 {
-   // gravity
-   v.addDy(-0.07);
-
-   // inertia
-   pt.add(v);
-
-   // out of bounds checker
-   if (isOutOfBounds())
-   {
-      kill();
-      points *= -1; // points go negative when it is missed!
-   }
+   adv = new Gravity;
+   adv->advance(*this, points);
 }
 
 /***************************************************************/
