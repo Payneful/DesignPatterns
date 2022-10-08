@@ -25,7 +25,7 @@ protected:
    double radius;             // the size (radius) of the flyer
    bool dead;                 // is this flyer dead?
    int points;                // how many points is this worth?
-   list<ApplyImpulse*> impulses;          // Impulses
+   std::list<ApplyImpulse*> impulses;          // Impulses
    
    
 public:

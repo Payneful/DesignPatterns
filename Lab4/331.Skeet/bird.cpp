@@ -92,13 +92,13 @@ Standard::Standard(double radius, double speed, int points) : Bird()
 Floater::Floater(double radius, double speed, int points) : Bird()
 {
     // NEW
+    /*
     impulses.push_back(ApplyBuoyancy);
     impulses.push_back(ApplyDrag);
     impulses.push_back(ApplyDrag);
     impulses.push_back(ApplyInertia);
+    */
 
-    //
-    /**************************************** OLD
    // floaters start on the lower part of the screen because they go up with time
    pt.setY(randomFloat(dimensions.getY() * 0.01, dimensions.getY() * 0.5));
    pt.setX(0.0);
@@ -112,7 +112,7 @@ Floater::Floater(double radius, double speed, int points) : Bird()
 
    // set the size
    this->radius = radius;
-   *********************************************/
+
 }
 
 /******************************************************************
@@ -120,11 +120,6 @@ Floater::Floater(double radius, double speed, int points) : Bird()
  ******************************************************************/
 Sinker::Sinker(double radius, double speed, int points) : Bird()
 {
-    // NEW
-    
-
-    //
-    /**************************************** OLD
    // sinkers start on the upper part of the screen because they go down with time
    pt.setY(randomFloat(dimensions.getY() * 0.50, dimensions.getY() * 0.95));
    pt.setX(0.0);
@@ -138,7 +133,7 @@ Sinker::Sinker(double radius, double speed, int points) : Bird()
 
    // set the size
    this->radius = radius;
-   *********************************************/
+
 }
 
 /******************************************************************

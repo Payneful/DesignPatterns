@@ -1,49 +1,32 @@
-#include <list>
-#include "bird.h"
+#include "ApplyImpulse.h"
 using namespace std;
 
 
-class ApplyImpulse {
-public:
-	virtual void applyImpulse(Bird bird) = 0;
-};
-
-class ApplyInertia : public ApplyImpulse {
-public:
-	void impulse(Bird bird) {
+void ApplyInertia::impulse(Bird bird) {
 		Velocity v = bird.getVelocity();
 		Point p = bird.getPosition();
 		p += v;
 		bird = p;
 	}
-};
-class ApplyGravity : public ApplyImpulse {
-public:
-	void impulse(Bird bird) {
+
+void ApplyGravity::impulse(Bird bird) {
 		Velocity v = bird.getVelocity();
 		v.addDy(-0.04);
 		bird = v;
 	}
-};
-class ApplyBuoyancy : public ApplyImpulse {
-public:
-	// setVelocity does not exist
-	void impulse(Bird bird) {
+
+void ApplyBuoyancy::impulse(Bird bird) {
 		Velocity v = bird.getVelocity();
 		v.addDy(0.05);
 		bird = v;
 	}
-};
-class ApplyDrag : public ApplyImpulse {
-public:
-	void impulse(Bird bird) {
+
+void ApplyDrag::impulse(Bird bird) {
 		Velocity v = bird.getVelocity();
-		bird = (v.getSpeed() * 0.995, bird.getVelocity());
+   bird = (static_cast<void>(v.getSpeed() * 0.995), bird.getVelocity());
 	}
-};
-class ApplyTurn : public ApplyImpulse {
-private:
-	void impulse(Bird bird) {
+
+void ApplyTurn::impulse(Bird bird) {
 		if (bird.randomInt(0, 15) == 0)
 		{
 			Velocity v = bird.getVelocity();
@@ -52,4 +35,4 @@ private:
 			bird = v;
 		}
 	}
-};
+

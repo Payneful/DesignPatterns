@@ -1,18 +1,19 @@
 #pragma once
 #include <list>
 #include "bird.h"
+#include "point.h"
 
 using namespace std;
 
 class ApplyImpulse {
 public:
-	virtual void Impulse(Bird bird) = 0;
+	virtual void impulse(Bird bird) = 0;
 };
 
 // ApplyTurn is the only class with a private function, not public.
 class ApplyTurn {
 private:
-	void impulse(Bird);
+	void impulse(Bird bird);
 };
 class ApplyInertia : public ApplyImpulse {
 public:
