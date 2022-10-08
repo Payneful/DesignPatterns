@@ -18,30 +18,30 @@ public:
 // ApplyTurn is the only class with a private function, not public.
 class ApplyTurn : public ApplyImpulse
 {
-public:
+private:
 	void impulse(Bird &bird);
 };
 
 class ApplyInertia : public ApplyImpulse
 {
-public:
+private:
 	void impulse(Bird &bird);
 };
 
 class ApplyGravity : public ApplyImpulse
 {
-public:
+private:
 	void impulse(Bird &bird);
 };
 
 class ApplyBuoyancy : public ApplyImpulse
 {
-public:
+private:
 	void impulse(Bird &bird);
 };
 
 class ApplyDrag : public ApplyImpulse
 {
-public:
+private:
 	void impulse(Bird &ird);
 };
