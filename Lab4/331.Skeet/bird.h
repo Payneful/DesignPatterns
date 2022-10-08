@@ -13,35 +13,35 @@ class Bird;
 
 class Advance {
 public:
-    void advance(Bird * bird);
+    void advance(Bird & bird);
 
 private:
-    void inertia(Bird * bird);
+    void inertia(Bird & bird);
 
-    virtual void drag(Bird * bird) {};
-    virtual void buoyancy(Bird * bird) {};
-    virtual void turn(Bird * bird) {};
+    virtual void drag(Bird & bird) {};
+    virtual void buoyancy(Bird & bird) {};
+    virtual void turn(Bird & bird) {};
 };
 
 class StandardAdvance : Advance {
 private:
-    void drag(Bird * bird);
+    void drag(Bird & bird);
 };
 
 class SinkerAdvance : Advance {
 private:
-    void buoyancy(Bird * bird);
+    void buoyancy(Bird & bird);
 };
 
 class FloaterAdvance : Advance {
 private:
-    void drag(Bird * bird);
-    void buoyancy(Bird * bird);
+    void drag(Bird & bird);
+    void buoyancy(Bird & bird);
 };
 
 class CrazyAdvance : Advance {
 private:
-    void turn(Bird * bird);
+    void turn(Bird & bird);
 };
 
 /**********************
@@ -67,6 +67,8 @@ public:
    void operator=(const Point    & rhs) { pt = rhs;    }
    void operator=(const Velocity & rhs) { v = rhs;     }
    void kill()                          { dead = true; }
+   void adjustVelocity(float amount)    { v *= amount; }
+   void adjustPosition(Velocity vel)    { pt += vel;   }
 
    // getters
    bool isDead()           const { return dead;   }
@@ -82,7 +84,7 @@ public:
 
    // special functions
    virtual void draw() = 0;
-   virtual void advance() {};
+   virtual void advance() = 0;
 };
 
 /*********************************************
@@ -106,7 +108,7 @@ class Floater : public Bird
 public:
     Floater(double radius = 30.0, double speed = 5.0, int points = 15);
     void draw();
-//    void advance();
+    void advance();
 };
 
 /*********************************************
@@ -118,7 +120,7 @@ class Crazy : public Bird
 public:
     Crazy(double radius = 30.0, double speed = 4.5, int points = 30);
     void draw();
-//    void advance();
+    void advance();
 };
 
 /*********************************************
@@ -130,5 +132,5 @@ class Sinker : public Bird
 public:
     Sinker(double radius = 30.0, double speed = 4.5, int points = 20);
     void draw();
-//    void advance();
+    void advance();
 };
