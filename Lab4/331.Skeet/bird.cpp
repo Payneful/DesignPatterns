@@ -145,7 +145,6 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
 
     //
     // 
-    /**************************************** OLD
    // crazy birds start in the middle and can go any which way
    pt.setY(randomFloat(dimensions.getY() * 0.25, dimensions.getY() * 0.75));
    pt.setX(0.0);
@@ -159,7 +158,6 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
 
    // set the size
    this->radius = radius;
-   *********************************************/
 }
 
  /***************************************************************/
@@ -170,8 +168,9 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
 
 void Bird::advance()
 {
-    for (auto impulse in impulses) {
-        impulse.ApplyImpulse(this);
+    list<ApplyImpulse*> impulses = getImpulses();
+    for (auto impulse : impulses) {
+        impulse->ApplyImpulse(*this);
     }
 }
 

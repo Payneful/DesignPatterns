@@ -43,6 +43,7 @@ public:
    Velocity getVelocity()  const { return v;      }
    double getRadius()      const { return radius; }
    int getPoints() const { return points; }
+   list<ApplyImpulse*> getImpulses() { return impulses; }
    bool isOutOfBounds() const
    {
       return (pt.getX() < -radius || pt.getX() >= dimensions.getX() + radius ||

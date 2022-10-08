@@ -1,0 +1,62 @@
+﻿  bird.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(10,23): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(16,15): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(20,15): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(24,15): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(28,15): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(32,15): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.cpp(171,26): error C3531: 'impulse': a symbol whose type contains 'auto' must have an initializer
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.cpp(171,23): error C2146: syntax error: missing ';' before identifier 'in'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.cpp(171,34): error C2143: syntax error: missing ';' before ')'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.cpp(171,34): error C2451: a conditional expression of type 'std::list<ApplyImpulse *,std::allocator<ApplyImpulse *>>' is not valid
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.cpp(171,26): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+  game.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(10,23): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(16,15): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(20,15): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(24,15): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(28,15): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(32,15): error C2061: syntax error: identifier 'Bird'
+  gun.cpp
+  skeet.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(10,23): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(16,15): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(20,15): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(24,15): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(28,15): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.h(32,15): error C2061: syntax error: identifier 'Bird'
+  ApplyImpulse.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(28,14): error C2065: 'ApplyImpulse': undeclared identifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(28,27): error C2059: syntax error: '>'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(6,20): error C2259: 'Bird': cannot instantiate abstract class
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(19): message : see declaration of 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(6,20): message : due to following members:
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(6,20): message : 'void Bird::draw(void)': is abstract
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(54): message : see declaration of 'Bird::draw'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(13,20): error C2259: 'Bird': cannot instantiate abstract class
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(19): message : see declaration of 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(13,20): message : due to following members:
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(13,20): message : 'void Bird::draw(void)': is abstract
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(54): message : see declaration of 'Bird::draw'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(19,21): error C2259: 'Bird': cannot instantiate abstract class
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(19): message : see declaration of 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(19,21): message : due to following members:
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(19,21): message : 'void Bird::draw(void)': is abstract
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(54): message : see declaration of 'Bird::draw'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(25,17): error C2259: 'Bird': cannot instantiate abstract class
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(19): message : see declaration of 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(25,17): message : due to following members:
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(25,17): message : 'void Bird::draw(void)': is abstract
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(54): message : see declaration of 'Bird::draw'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(30,17): error C2259: 'Bird': cannot instantiate abstract class
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(19): message : see declaration of 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(30,17): message : due to following members:
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(30,17): message : 'void Bird::draw(void)': is abstract
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(54): message : see declaration of 'Bird::draw'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(34,45): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(34,40): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(35,45): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\ApplyImpulse.cpp(35,40): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  time.cpp
+  uiInteract.cpp
+  Generating Code...
