@@ -98,7 +98,7 @@ Floater::Floater(double radius, double speed, int points) : Bird()
     impulses.push_back(ApplyDrag);
     impulses.push_back(ApplyInertia);
     */
-
+    
    // floaters start on the lower part of the screen because they go up with time
    pt.setY(randomFloat(dimensions.getY() * 0.01, dimensions.getY() * 0.5));
    pt.setX(0.0);
@@ -112,7 +112,7 @@ Floater::Floater(double radius, double speed, int points) : Bird()
 
    // set the size
    this->radius = radius;
-
+   
 }
 
 /******************************************************************
@@ -170,7 +170,7 @@ void Bird::advance()
 {
     list<ApplyImpulse*> impulses = getImpulses();
     for (auto impulse : impulses) {
-        impulse->ApplyImpulse(*this);
+        impulse->impulse(*this);
     }
 }
 

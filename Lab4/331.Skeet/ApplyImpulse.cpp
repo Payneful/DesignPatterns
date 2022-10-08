@@ -1,4 +1,5 @@
 #include "ApplyImpulse.h"
+#include <cassert>
 using namespace std;
 
 /***************************************************************/
@@ -12,11 +13,11 @@ using namespace std;
  * RANDOM
  * This functions generate a random number.
  ****************************************************************/
-int randomInt(int min, int max)
+int randomInteger(int min, int max)
 {
-   assert(min < max);
+   //assert(min < max);
    int num = (rand() % (max - min)) + min;
-   assert(min <= num && num <= max);
+   //assert(min <= num && num <= max);
    return num;
 }
 
@@ -46,11 +47,11 @@ void ApplyDrag::impulse(Bird &bird) {
 	}
 
 void ApplyTurn::impulse(Bird &bird) {
-		if (randomInt(0, 15) == 0)
+		if (randomInteger(0, 15) == 0)
 		{
 			Velocity v = bird.getVelocity();
-			v.addDy(v.getDy() + randomInt(-1.5, 1.5));
-			v.addDx(v.getDx() + randomInt(-1.5, 1.5));
+			v.addDy(v.getDy() + randomInteger(-1.5, 1.5));
+			v.addDx(v.getDx() + randomInteger(-1.5, 1.5));
 			bird = v;
 		}
 	}
