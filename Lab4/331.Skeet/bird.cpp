@@ -43,15 +43,8 @@
 
 /******************************************************************
  * RANDOM
- * These functions generate a random number.
+ * This functions generate a random number.
  ****************************************************************/
-int randomInt(int min, int max)
-{
-   assert(min < max);
-   int num = (rand() % (max - min)) + min;
-   assert(min <= num && num <= max);
-   return num;
-}
 double randomFloat(double min, double max)
 {
    assert(min <= max);
@@ -170,8 +163,8 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
 
 void Bird::advance()
 {
-    for (auto impulse in impulses) {
-        impulse.ApplyImpulse(this);
+    for (auto impulse : impulses) {
+       impulse->impulse(*this);
     }
 }
 
