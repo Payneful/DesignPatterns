@@ -1,33 +1,47 @@
 #pragma once
 #include <list>
-#include "bird.h"
 #include "point.h"
+#include "bird.h"
+
 
 using namespace std;
 
-class ApplyImpulse {
+// For circular dependencies
+class Bird;
+
+class ApplyImpulse
+{
 public:
-	virtual void impulse(Bird bird) = 0;
+	virtual void impulse(Bird &bird) = 0;
 };
 
 // ApplyTurn is the only class with a private function, not public.
-class ApplyTurn {
-private:
-	void impulse(Bird bird);
-};
-class ApplyInertia : public ApplyImpulse {
+class ApplyTurn : public ApplyImpulse
+{
 public:
-	void impulse(Bird bird);
+	void impulse(Bird &bird);
 };
-class ApplyGravity : public ApplyImpulse {
+
+class ApplyInertia : public ApplyImpulse
+{
 public:
-	void impulse(Bird bird);
+	void impulse(Bird &bird);
 };
-class ApplyBuoyancy : public ApplyImpulse {
+
+class ApplyGravity : public ApplyImpulse
+{
 public:
-	void impulse(Bird bird);
+	void impulse(Bird &bird);
 };
-class ApplyDrag : public ApplyImpulse {
+
+class ApplyBuoyancy : public ApplyImpulse
+{
 public:
-	void impulse(Bird bird);
+	void impulse(Bird &bird);
+};
+
+class ApplyDrag : public ApplyImpulse
+{
+public:
+	void impulse(Bird &ird);
 };
