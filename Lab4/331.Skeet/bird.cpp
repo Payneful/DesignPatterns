@@ -27,7 +27,7 @@
 #ifdef _WIN32
 #include <stdio.h>
 #include <stdlib.h>
-#include <GL/glut.h>         // OpenGL library we copied 
+#include <GL/glut.h>         // OpenGL library we copied
 #define _USE_MATH_DEFINES
 #include <math.h>
 #define GLUT_TEXT GLUT_BITMAP_HELVETICA_12
@@ -43,15 +43,8 @@
 
 /******************************************************************
  * RANDOM
- * These functions generate a random number.
+ * This functions generate a random number.
  ****************************************************************/
-int randomInt(int min, int max)
-{
-   assert(min < max);
-   int num = (rand() % (max - min)) + min;
-   assert(min <= num && num <= max);
-   return num;
-}
 double randomFloat(double min, double max)
 {
    assert(min <= max);
@@ -74,16 +67,18 @@ Standard::Standard(double radius, double speed, int points) : Bird()
    // set the position: standard birds start from the middle
    pt.setY(randomFloat(dimensions.getY() * 0.25, dimensions.getY() * 0.75));
    pt.setX(0.0);
-
+   
    // set the velocity
    v.setDx(randomFloat(speed - 0.5, speed + 0.5));
    v.setDy(randomFloat(-speed / 5.0, speed / 5.0));
-
+   
    // set the points
    this->points = points;
-
+   
    // set the size
    this->radius = radius;
+   
+   advance();
 }
 
 /******************************************************************
@@ -91,28 +86,21 @@ Standard::Standard(double radius, double speed, int points) : Bird()
  ******************************************************************/
 Floater::Floater(double radius, double speed, int points) : Bird()
 {
-    // NEW
-    /*
-    impulses.push_back(ApplyBuoyancy);
-    impulses.push_back(ApplyDrag);
-    impulses.push_back(ApplyDrag);
-    impulses.push_back(ApplyInertia);
-    */
-    
    // floaters start on the lower part of the screen because they go up with time
    pt.setY(randomFloat(dimensions.getY() * 0.01, dimensions.getY() * 0.5));
    pt.setX(0.0);
-
+   
    // set the velocity
    v.setDx(randomFloat(speed - 0.5, speed + 0.5));
    v.setDy(randomFloat(0.0, speed / 3.0));
-
+   
    // set the points value
    this->points = points;
-
+   
    // set the size
    this->radius = radius;
    
+   advance();
 }
 
 /******************************************************************
@@ -123,17 +111,18 @@ Sinker::Sinker(double radius, double speed, int points) : Bird()
    // sinkers start on the upper part of the screen because they go down with time
    pt.setY(randomFloat(dimensions.getY() * 0.50, dimensions.getY() * 0.95));
    pt.setX(0.0);
-
+   
    // set the velocity
    v.setDx(randomFloat(speed - 0.5, speed + 0.5));
    v.setDy(randomFloat(-speed / 3.0, 0.0));
-
+   
    // set the points value
    this->points = points;
-
+   
    // set the size
    this->radius = radius;
-
+   
+   advance();
 }
 
 /******************************************************************
@@ -141,51 +130,53 @@ Sinker::Sinker(double radius, double speed, int points) : Bird()
  ******************************************************************/
 Crazy::Crazy(double radius, double speed, int points) : Bird()
 {
-    // NEW
-
-    //
-    // 
    // crazy birds start in the middle and can go any which way
    pt.setY(randomFloat(dimensions.getY() * 0.25, dimensions.getY() * 0.75));
    pt.setX(0.0);
-
+   
    // set the velocity
    v.setDx(randomFloat(speed - 0.5, speed + 0.5));
    v.setDy(randomFloat(-speed / 5.0, speed / 5.0));
-
+   
    // set the points value
    this->points = points;
-
+   
    // set the size
    this->radius = radius;
+   
+   advance();
 }
 
- /***************************************************************/
- /***************************************************************/
- /*                            ADVANCE                          */
- /***************************************************************/
- /***************************************************************/
+/***************************************************************/
+/***************************************************************/
+/*                            ADVANCE                          */
+/***************************************************************/
+/***************************************************************/
 
 void Bird::advance()
 {
-    list<ApplyImpulse*> impulses = getImpulses();
-    for (auto impulse : impulses) {
-        impulse->impulse(*this);
-    }
+   for (auto impulse : impulses) {
+      impulse->impulse(*this);
+   }
 }
 
 /*********************************************
  * STANDARD ADVANCE
  * How the standard bird moves - inertia and drag
- 
+ *********************************************/
 void Standard::advance()
 {
-   // small amount of drag
-   v *= 0.995;
-
-   // inertia
-   pt.add(v);
-
+   impulses.push_back(new ApplyDrag);
+   impulses.push_back(new ApplyInertia);
+   
+   /*
+    // small amount of drag
+    v *= 0.995;
+    
+    // inertia
+    pt.add(v);
+    */
+   
    // out of bounds checker
    if (isOutOfBounds())
    {
@@ -193,22 +184,29 @@ void Standard::advance()
       points *= -1; // points go negative when it is missed!
    }
 }
-*********************************************/
+
 /*********************************************
  * FLOATER ADVANCE
  * How the floating bird moves: strong drag and anti-gravity
- 
+ *********************************************/
 void Floater::advance()
 {
-   // large amount of drag
-   v *= 0.990;
-
-   // inertia
-   pt.add(v);
-
-   // anti-gravity
-   v.addDy(0.05);
-
+   impulses.push_back(new ApplyBuoyancy);
+   impulses.push_back(new ApplyDrag);
+   impulses.push_back(new ApplyDrag);
+   impulses.push_back(new ApplyInertia);
+   
+   /*
+    // large amount of drag
+    v *= 0.990;
+    
+    // inertia
+    pt.add(v);
+    
+    // anti-gravity
+    v.addDy(0.05);
+    */
+   
    // out of bounds checker
    if (isOutOfBounds())
    {
@@ -216,23 +214,28 @@ void Floater::advance()
       points *= -1; // points go negative when it is missed!
    }
 }
-*********************************************/
+
 /*********************************************
  * CRAZY ADVANCE
  * How the crazy bird moves, every half a second it changes direciton
-
+ *********************************************/
 void Crazy::advance()
 {
-   // erratic turns eery half a second or so
-   if (randomInt(0, 15) == 0)
-   {
-      v.addDy(randomFloat(-1.5, 1.5));
-      v.addDx(randomFloat(-1.5, 1.5));
-   }
-
-   // inertia
-   pt.add(v);
-
+   impulses.push_back(new ApplyTurn);
+   impulses.push_back(new ApplyInertia);
+   
+   /*
+    // erratic turns eery half a second or so
+    if (randomInt(0, 15) == 0)
+    {
+    v.addDy(randomFloat(-1.5, 1.5));
+    v.addDx(randomFloat(-1.5, 1.5));
+    }
+    
+    // inertia
+    pt.add(v);
+    */
+   
    // out of bounds checker
    if (isOutOfBounds())
    {
@@ -240,19 +243,24 @@ void Crazy::advance()
       points *= -1; // points go negative when it is missed!
    }
 }
- *********************************************/
+
 /*********************************************
  * SINKER ADVANCE
  * How the sinker bird moves, no drag but gravity
- 
+ *********************************************/
 void Sinker::advance()
 {
-   // gravity
-   v.addDy(-0.07);
-
-   // inertia
-   pt.add(v);
-
+   impulses.push_back(new ApplyGravity);
+   impulses.push_back(new ApplyInertia);
+   
+   /*
+    // gravity
+    v.addDy(-0.07);
+    
+    // inertia
+    pt.add(v);
+    */
+   
    // out of bounds checker
    if (isOutOfBounds())
    {
@@ -260,7 +268,7 @@ void Sinker::advance()
       points *= -1; // points go negative when it is missed!
    }
 }
-*********************************************/
+
 /***************************************************************/
 /***************************************************************/
 /*                             DRAW                            */
@@ -276,32 +284,32 @@ void drawDisk(const Point& center, double radius,
 {
    assert(radius > 1.0);
    const double increment = M_PI / radius;  // bigger the circle, the more increments
-
+   
    // begin drawing
    glBegin(GL_TRIANGLES);
    glColor3f((GLfloat)red /* red % */, (GLfloat)green /* green % */, (GLfloat)blue /* blue % */);
-
+   
    // three points: center, pt1, pt2
    Point pt1;
    pt1.setX(center.getX() + (radius * cos(0.0)));
    pt1.setY(center.getY() + (radius * sin(0.0)));
    Point pt2(pt1);
-
+   
    // go around the circle
    for (double radians = increment;
-      radians <= M_PI * 2.0 + .5;
-      radians += increment)
+        radians <= M_PI * 2.0 + .5;
+        radians += increment)
    {
       pt2.setX(center.getX() + (radius * cos(radians)));
       pt2.setY(center.getY() + (radius * sin(radians)));
-
+      
       glVertex2f((GLfloat)center.getX(), (GLfloat)center.getY());
       glVertex2f((GLfloat)pt1.getX(), (GLfloat)pt1.getY());
       glVertex2f((GLfloat)pt2.getX(), (GLfloat)pt2.getY());
-
+      
       pt1 = pt2;
    }
-
+   
    // complete drawing
    glEnd();
 }
