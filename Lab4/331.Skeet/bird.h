@@ -23,23 +23,23 @@ private:
     virtual void turn(Bird & bird) {};
 };
 
-class StandardAdvance : Advance {
+class StandardAdvance : public Advance {
 private:
-    void drag(Bird & bird);
+   void drag(Bird & bird);
 };
 
-class SinkerAdvance : Advance {
+class SinkerAdvance : public Advance {
 private:
     void buoyancy(Bird & bird);
 };
 
-class FloaterAdvance : Advance {
+class FloaterAdvance : public Advance {
 private:
     void drag(Bird & bird);
     void buoyancy(Bird & bird);
 };
 
-class CrazyAdvance : Advance {
+class CrazyAdvance : public Advance {
 private:
     void turn(Bird & bird);
 };
@@ -57,7 +57,7 @@ protected:
    double radius;             // the size (radius) of the flyer
    bool dead;                 // is this flyer dead?
    int points;                // how many points is this worth?
-   Advance adv;
+   Advance *adv;
 
    
 public:

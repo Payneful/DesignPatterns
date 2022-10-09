@@ -160,7 +160,8 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
  *********************************************/
 void Standard::advance()
 {
-    adv.advance(*this);
+   adv = new StandardAdvance;
+   adv->advance(*this);
 }
 
 /*********************************************
@@ -169,7 +170,8 @@ void Standard::advance()
  *********************************************/
 void Floater::advance()
 {
-    adv.advance(*this);
+   adv = new FloaterAdvance;
+   adv->advance(*this);
 }
 
 /*********************************************
@@ -178,7 +180,8 @@ void Floater::advance()
  *********************************************/
 void Crazy::advance()
 {
-    adv.advance(*this);
+   adv = new CrazyAdvance;
+   adv->advance(*this);
 }
 
 /*********************************************
@@ -187,7 +190,8 @@ void Crazy::advance()
  *********************************************/
 void Sinker::advance()
 {
-    adv.advance(*this);
+   adv = new SinkerAdvance;
+   adv->advance(*this);
 }
 
 /***************************************************************/
