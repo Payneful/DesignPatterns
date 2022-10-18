@@ -56,7 +56,6 @@ void Skeet::animate()
    for (auto element : birds)
    {
       element->advance();
-      hitRatio.adjust(element->isDead() ? -1 : 0);
    }
    for (auto bullet : bullets)
       bullet->move(effects);
@@ -73,9 +72,8 @@ void Skeet::animate()
          {
             for (int i = 0; i < 25; i++)
                effects.push_back(new Fragment(bullet->getPosition(), bullet->getVelocity()));
-            element->kill();
+            element->kill(true);
             bullet->kill();
-            hitRatio.adjust(1);
          }
    
    // remove the zombie birds
@@ -370,7 +368,7 @@ void Skeet::spawn()
          // spawns when there is nothing on the screen
          if (birds.size() == 0 && random(0, 15) == 1)
             birds.push_back(new Standard(size, 7.0));
-         
+
          // spawn every 4 seconds
          if (random(0, 4 * 30) == 1)
             birds.push_back(new Standard(size, 7.0));

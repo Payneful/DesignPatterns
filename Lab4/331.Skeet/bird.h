@@ -35,7 +35,7 @@ public:
     // setters
     void operator=(const Point    & rhs) { pt = rhs;    }
     void operator=(const Velocity & rhs) { v = rhs;     }
-    void kill()                          { dead = true; }
+    void kill(bool isHit);
 
     // getters
     bool isDead()           const { return dead;   }

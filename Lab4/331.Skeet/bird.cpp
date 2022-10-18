@@ -167,7 +167,7 @@ void Standard::advance()
     // out of bounds checker
     if (isOutOfBounds())
     {
-        kill();
+        kill(false);
         points *= -1; // points go negative when it is missed!
     }
 }
@@ -190,7 +190,7 @@ void Floater::advance()
     // out of bounds checker
     if (isOutOfBounds())
     {
-        kill();
+        kill(false);
         points *= -1; // points go negative when it is missed!
     }
 }
@@ -214,7 +214,7 @@ void Crazy::advance()
     // out of bounds checker
     if (isOutOfBounds())
     {
-        kill();
+        kill(false);
         points *= -1; // points go negative when it is missed!
     }
 }
@@ -234,7 +234,7 @@ void Sinker::advance()
     // out of bounds checker
     if (isOutOfBounds())
     {
-        kill();
+        kill(false);
         points *= -1; // points go negative when it is missed!
     }
 }
@@ -351,4 +351,13 @@ void Bird::notify(int message) {
     for(Status * observer : audience) {
         observer->update(message);
     }
+}
+
+void Bird::kill(bool isHit) {
+    if(isHit) {
+        notify(getPoints());
+    } else {
+        notify(-getPoints());
+    }
+    dead = true;
 }
