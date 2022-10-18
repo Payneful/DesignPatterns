@@ -51,3 +51,15 @@ void HitRatio::adjust(int value)
     else if (value < 0)
         numMissed++;
 }
+
+void Score::update(int message) {
+    points += message;
+}
+
+void HitRatio::update(int message) {
+    if(message > 0) {
+        numKilled += 1;
+    } else {
+        numMissed += 1;
+    }
+}

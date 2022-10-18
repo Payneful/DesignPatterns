@@ -8,41 +8,10 @@
  ************************************************************************/
 
 #pragma once
+
+#include <list>
 #include "point.h"
-class Bird;
-
-class Advance {
-public:
-    void advance(Bird & bird);
-
-private:
-    void inertia(Bird & bird);
-
-    virtual void drag(Bird & bird) {};
-    virtual void buoyancy(Bird & bird) {};
-    virtual void turn(Bird & bird) {};
-};
-
-class StandardAdvance : public Advance {
-private:
-   void drag(Bird & bird);
-};
-
-class SinkerAdvance : public Advance {
-private:
-    void buoyancy(Bird & bird);
-};
-
-class FloaterAdvance : public Advance {
-private:
-    void drag(Bird & bird);
-    void buoyancy(Bird & bird);
-};
-
-class CrazyAdvance : public Advance {
-private:
-    void turn(Bird & bird);
-};
+#include "score.h"
 
 /**********************
  * BIRD
@@ -51,40 +20,42 @@ private:
 class Bird
 {
 protected:
-   static Point dimensions; // size of the screen
-   Point pt;                  // position of the flyer
-   Velocity v;                // velocity of the flyer
-   double radius;             // the size (radius) of the flyer
-   bool dead;                 // is this flyer dead?
-   int points;                // how many points is this worth?
-   Advance *adv;
+    static Point dimensions; // size of the screen
+    Point pt;                  // position of the flyer
+    Velocity v;                // velocity of the flyer
+    double radius;             // the size (radius) of the flyer
+    bool dead;                 // is this flyer dead?
+    int points;                // how many points is this worth?
 
-   
+    std::list<Status*> audience;
+
 public:
-   Bird() : dead(false), points(0), radius(1.0) { }
-   
-   // setters
-   void operator=(const Point    & rhs) { pt = rhs;    }
-   void operator=(const Velocity & rhs) { v = rhs;     }
-   void kill()                          { dead = true; }
-   void adjustVelocity(float amount)    { v *= amount; }
-   void adjustPosition(Velocity vel)    { pt += vel;   }
+    Bird() : dead(false), points(0), radius(1.0) { }
 
-   // getters
-   bool isDead()           const { return dead;   }
-   Point getPosition()     const { return pt;     }
-   Velocity getVelocity()  const { return v;      }
-   double getRadius()      const { return radius; }
-   int getPoints() const { return points; }
-   bool isOutOfBounds() const
-   {
-      return (pt.getX() < -radius || pt.getX() >= dimensions.getX() + radius ||
-              pt.getY() < -radius || pt.getY() >= dimensions.getY() + radius);
-   }
+    // setters
+    void operator=(const Point    & rhs) { pt = rhs;    }
+    void operator=(const Velocity & rhs) { v = rhs;     }
+    void kill()                          { dead = true; }
 
-   // special functions
-   virtual void draw() = 0;
-   virtual void advance() = 0;
+    // getters
+    bool isDead()           const { return dead;   }
+    Point getPosition()     const { return pt;     }
+    Velocity getVelocity()  const { return v;      }
+    double getRadius()      const { return radius; }
+    int getPoints() const { return points; }
+    bool isOutOfBounds() const
+    {
+        return (pt.getX() < -radius || pt.getX() >= dimensions.getX() + radius ||
+                pt.getY() < -radius || pt.getY() >= dimensions.getY() + radius);
+    }
+
+    // special functions
+    virtual void draw() = 0;
+    virtual void advance() = 0;
+
+    void subscribe(Status & observer);
+    void unsubscribe(Status & observer);
+    void notify(int message);
 };
 
 /*********************************************

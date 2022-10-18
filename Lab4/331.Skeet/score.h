@@ -21,6 +21,7 @@ public:
     virtual std::string getText() const = 0;
     virtual void adjust(int value) = 0;
     virtual void reset() = 0;
+    virtual void update(int message) = 0;
 };
 
 /**********************
@@ -34,6 +35,7 @@ public:
     std::string getText() const;
     void adjust(int value) { points += value; }
     void reset() { points = 0; }
+    void update(int message);
 private:
     int points;
 };
@@ -49,6 +51,7 @@ public:
     std::string getText() const;
     void adjust(int value);
     void reset() { numKilled = numMissed = 0; }
+    void update(int message);
 private:
     int numKilled;
     int numMissed;
