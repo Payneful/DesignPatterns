@@ -367,11 +367,11 @@ void Skeet::spawn()
          size = 30.0;
          // spawns when there is nothing on the screen
          if (birds.size() == 0 && random(0, 15) == 1)
-            birds.push_back(new Standard(size, 7.0));
+            birds.push_back(new Standard(size, 7.0, 10, score, hitRatio));
 
          // spawn every 4 seconds
          if (random(0, 4 * 30) == 1)
-            birds.push_back(new Standard(size, 7.0));
+             birds.push_back(new Standard(size, 7.0, 10, score, hitRatio));
          break;
          
       // two kinds of birds in level 2

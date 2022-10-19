@@ -86,6 +86,25 @@ Standard::Standard(double radius, double speed, int points) : Bird()
     this->radius = radius;
 }
 
+Standard::Standard(double radius, double speed, int points, Score pScore, HitRatio pHitRatio) {
+    subscribe(pScore);
+    subscribe(pHitRatio);
+
+    // set the position: standard birds start from the middle
+    pt.setY(randomFloat(dimensions.getY() * 0.25, dimensions.getY() * 0.75));
+    pt.setX(0.0);
+
+    // set the velocity
+    v.setDx(randomFloat(speed - 0.5, speed + 0.5));
+    v.setDy(randomFloat(-speed / 5.0, speed / 5.0));
+
+    // set the points
+    this->points = points;
+
+    // set the size
+    this->radius = radius;
+}
+
 /******************************************************************
  * FLOATER constructor
  ******************************************************************/
@@ -348,6 +367,9 @@ void Bird::unsubscribe(Status &observer) {
 }
 
 void Bird::notify(int message) {
+//    for(auto const& observer: audience) {
+//        observer->update(message);
+//    }
     for(Status * observer : audience) {
         observer->update(message);
     }

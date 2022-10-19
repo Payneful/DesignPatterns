@@ -66,6 +66,7 @@ class Standard : public Bird
 {
 public:
     Standard(double radius = 25.0, double speed = 5.0, int points = 10);
+    Standard(double radius, double speed, int points, Score pScore, HitRatio pHitRatio);
     void draw();
     void advance();
 };
