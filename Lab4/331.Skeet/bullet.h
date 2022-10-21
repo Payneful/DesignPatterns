@@ -12,6 +12,9 @@
 #include "effect.h"
 #include <list>
 #include <cassert>
+#include "Mediator.h"
+
+class Colleague;              // For circular dependencies
 
 /*********************************************
  * BULLET
@@ -26,6 +29,7 @@ protected:
    double radius;             // the size (radius) of the bullet
    bool dead;                 // is this bullet dead?
    int value;                 // how many points does this cost?
+   BulletColleague colleague;
     
 public:
    Bullet(double angle = 0.0, double speed = 30.0, double radius = 5.0, int value = 1);
@@ -45,6 +49,12 @@ public:
    virtual void output() = 0;
    virtual void input(bool isUp, bool isDown, bool isB) {}
    virtual void move(std::list<Effect*> &effects);
+   
+   void wasFired()
+   {
+      kill();
+      colleague.firedBullet();
+   }
 
 protected:
    bool isOutOfBounds() const

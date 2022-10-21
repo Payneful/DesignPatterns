@@ -163,12 +163,7 @@ void Standard::advance()
    // inertia
    pt.add(v);
 
-   // out of bounds checker
-   if (isOutOfBounds())
-   {
-      kill();
-      points *= -1; // points go negative when it is missed!
-   }
+   outOfBoundsChecker();
 }
 
 /*********************************************
@@ -187,11 +182,7 @@ void Floater::advance()
    v.addDy(0.05);
 
    // out of bounds checker
-   if (isOutOfBounds())
-   {
-      kill();
-      points *= -1; // points go negative when it is missed!
-   }
+   outOfBoundsChecker();
 }
 
 /*********************************************
@@ -211,11 +202,7 @@ void Crazy::advance()
    pt.add(v);
 
    // out of bounds checker
-   if (isOutOfBounds())
-   {
-      kill();
-      points *= -1; // points go negative when it is missed!
-   }
+   outOfBoundsChecker();
 }
 
 /*********************************************
@@ -231,11 +218,7 @@ void Sinker::advance()
    pt.add(v);
 
    // out of bounds checker
-   if (isOutOfBounds())
-   {
-      kill();
-      points *= -1; // points go negative when it is missed!
-   }
+   outOfBoundsChecker();
 }
 
 /***************************************************************/

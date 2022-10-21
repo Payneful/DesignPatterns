@@ -4,16 +4,26 @@
 //  Created by Anne George on 10/21/22.
 //
 
+#include "bird.h"
+#include "score.h"
+#include "bullet.h"
+#include <vector>
+
 #ifndef Mediator_h
 #define Mediator_h
 
-#include "bird.h"
-#include "vector"
-#pragma once
+/******************************
+ * For circular dependencies */
+class Bird;
+class Score;
+class HitRatio;
+class Bullet;
+/*****************************/
 
 class Colleague;
 struct Message;
-class Bird;    // For circular dependencies
+
+enum status {Bullet_fired, Bird_died};
 
 class Mediator
 {
@@ -21,38 +31,129 @@ protected:
    std::vector<Colleague*> colleagues;
    
 public:
-   void notify(const Message & message);
-   void enroll(const Colleague & enrolle);
-   void unenroll(const Colleague & enrolle);
+   Mediator() {}
+   ~Mediator() {
+      for (unsigned int i = 0; i < colleagues.size(); i++)
+      {
+         delete colleagues[i];
+      }
+      colleagues.clear();
+   }
+   
+   //get
+   Mediator* getMediator() {return this;}
+   
+   void notify(const Message& message);
+   void enroll(Colleague* const enrolle);
+   void unenroll(Colleague* const enrolle);
 };
 
 struct Message
 {
-   enum type {Bullet_fired, Bird_died};
+   int type;
    int value;
 };
 
 class Colleague
 {
 protected:
-   Mediator mediator; //pointer?
+   std::vector<Mediator*> mediators;
+   Mediator mediator;
    
 public:
-   virtual void notify(const Message & message) = 0;
-   void enroll(const Mediator & mediator);
-   void unenroll(const Mediator & mediator);
+   //get
+   virtual Colleague* getColleague() = 0;
+   
+   virtual void notify(Message const &message) = 0;
+   void enroll(Mediator* const enrolle);
+   void unenroll(Mediator* const enrolle);
 };
 
 class BirdColleague : public Colleague
 {
 private:
-   int status; //not sure the data type yet.
-   Bird * pBird;
+   Message message;
+   Bird* pBird;
    
 public:
-   void notify(const Message & message);
+   BirdColleague() {}
+   BirdColleague(Bird* const bird) : pBird(bird)
+   {
+      mediator.enroll(this);
+   }
+   
+   //get
+   Colleague* getColleague()           { return this; }
+   //set
+   void setColleague(Bird* bird)
+   {
+      this->pBird = bird;
+      mediator.enroll(this);
+   }
+   
+   void notify(Message const &message) {}
    void wentOutOfBounds();
    void wasShot();
+};
+
+class BulletColleague : public Colleague
+{
+private:
+   Message message;
+   Bullet* pBullet;
+   
+public:
+   BulletColleague() {}
+   /*
+   BulletColleague(Bullet* const bullet) : pBullet(bullet)
+   {
+      mediator.enroll(this);
+   }
+   */
+   
+   //get
+   Colleague* getColleague()           { return this; }
+   //set
+   void setColleague(Bullet* bullet)
+   {
+      this->pBullet = bullet;
+      mediator.enroll(this);
+   }
+   
+   void notify(Message const &message) {}
+   void firedBullet();
+};
+
+class ScoreColleague : public Colleague
+{
+private:
+   Score status;
+   
+public:
+   //get
+   Colleague* getColleague() { return this; }
+   
+   void notify(Message const &message)
+   {
+      status.adjust(message.value);
+   }
+};
+
+class HitRatioColleague : public Colleague
+{
+private:
+   HitRatio status;
+   
+public:
+   //get
+   Colleague* getColleague() { return this; }
+   
+   void notify(Message const &message)
+   {
+      if (message.type == Bird_died) {
+         status.adjust(message.value);
+      }
+   }
 };
 
 #endif /* Mediator_h */

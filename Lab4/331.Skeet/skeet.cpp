@@ -56,6 +56,10 @@ void Skeet::animate()
    for (auto element : birds)
    {
       element->advance();
+      /*
+      if (element->isDead())
+         element->wasShot();
+      */
       hitRatio.adjust(element->isDead() ? -1 : 0);
    }
    for (auto bullet : bullets)
@@ -73,16 +77,16 @@ void Skeet::animate()
          {
             for (int i = 0; i < 25; i++)
                effects.push_back(new Fragment(bullet->getPosition(), bullet->getVelocity()));
-            element->kill();
-            bullet->kill();
-            hitRatio.adjust(1);
+            element->wasShot();
+            bullet->wasFired();
+            //hitRatio.adjust(1);
          }
    
    // remove the zombie birds
    for (auto it = birds.begin(); it != birds.end();)
       if ((*it)->isDead())
       {
-         score.adjust((*it)->getPoints());
+         //score.adjust((*it)->getPoints());
          it = birds.erase(it);
       }
       else

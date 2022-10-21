@@ -36,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		906F2B73290354A70076394E /* Mediator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Mediator.cpp; path = ../../Lab6/Mediator/Mediator.cpp; sourceTree = "<group>"; };
-		906F2B75290355B10076394E /* Mediator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Mediator.h; path = ../../Lab6/Mediator/Mediator.h; sourceTree = "<group>"; };
+		906F2B75290355B10076394E /* Mediator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Mediator.h; path = ../../Lab6/Mediator/Mediator.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C15451E427403CD70095997B /* effect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = effect.h; sourceTree = "<group>"; };
 		C15451E527403ED30095997B /* effect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = effect.cpp; sourceTree = "<group>"; };
 		C159391D271E278800A7F857 /* bullet.h */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.c.h; path = bullet.h; sourceTree = "<group>"; tabWidth = 3; };

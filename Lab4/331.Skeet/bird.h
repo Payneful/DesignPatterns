@@ -26,10 +26,13 @@ protected:
    double radius;             // the size (radius) of the flyer
    bool dead;                 // is this flyer dead?
    int points;                // how many points is this worth?
-   Colleague * pCollegue;
+   BirdColleague* colleague;
    
 public:
-   Bird() : dead(false), points(0), radius(1.0) { }
+   Bird() : dead(false), points(0), radius(1.0)
+   {
+      colleague->setColleague(this);
+   }
    
    // setters
    void operator=(const Point    & rhs) { pt = rhs;    }
@@ -48,7 +51,22 @@ public:
               pt.getY() < -radius || pt.getY() >= dimensions.getY() + radius);
    }
    
-   void wasShot(); //same function as kill()?
+   void outOfBoundsChecker()
+   {
+      // out of bounds checker
+      if (isOutOfBounds())
+      {
+         kill();
+         points *= -1; // points go negative when it is missed!
+         colleague.wentOutOfBounds();
+      }
+   }
+   
+   void wasShot()
+   {
+      kill();
+      colleague.wasShot();
+   }
 
    // special functions
    virtual void draw() = 0;

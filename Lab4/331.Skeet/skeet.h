@@ -17,6 +17,7 @@
 #include "gun.h"
 #include "time.h"
 #include "score.h"
+#include "Mediator.h"
 
 #include <list>
 
@@ -50,12 +51,13 @@ private:
                    double redFore, double greenFore, double blueFore,
                    double redBack, double greenBack, double blueBack) const;
     
-    Gun gun;                       // the gun
-    std::list<Bird*> birds;        // all the shootable birds
-    std::list<Bullet*> bullets;    // the bullets
-    std::list<Effect*> effects;    // the fragments of a dead bird.
-    Time time;                     // how many frames have transpired since the beginning
-    Score score;                   // the player's score
-    HitRatio hitRatio;               // the hit ratio for the birds
-    Point dimensions;              // size of the screen
+   Gun gun;                       // the gun
+   std::list<Bird*> birds;        // all the shootable birds
+   std::list<Bullet*> bullets;    // the bullets
+   std::list<Effect*> effects;    // the fragments of a dead bird.
+   Time time;                     // how many frames have transpired since the beginning
+   Score score;                   // the player's score
+   HitRatio hitRatio;               // the hit ratio for the birds
+   Point dimensions;              // size of the screen
+   Mediator mediator;
 };
