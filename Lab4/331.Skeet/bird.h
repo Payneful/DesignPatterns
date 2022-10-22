@@ -15,7 +15,7 @@
  * BIRD
  * Everything that can be shot
  **********************/
-class Bird
+class Bird: public FlyingObject
 {
 protected:
    static Point dimensions; // size of the screen
@@ -44,7 +44,7 @@ public:
       return (pt.getX() < -radius || pt.getX() >= dimensions.getX() + radius ||
               pt.getY() < -radius || pt.getY() >= dimensions.getY() + radius);
    }
-   void accept(Visitor);
+   void accept(Visitor* visitor);
 
    // special functions
    virtual void draw() = 0;

@@ -18,7 +18,7 @@
  * BULLET
  * Something to shoot something else
  *********************************************/
-class Bullet
+class Bullet: public FlyingObject
 {
 protected:
    static Point dimensions;   // size of the screen
@@ -40,7 +40,7 @@ public:
    Velocity getVelocity()  const { return v;      }
    double getRadius()      const { return radius; }
    int getValue()          const { return value;  }
-   void accept(Visitor);
+   void accept(Visitor* visitor);
 
    // special functions
    virtual void death(std::list<Bullet *> & bullets) {}

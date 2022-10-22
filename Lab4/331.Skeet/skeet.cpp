@@ -31,29 +31,29 @@ using namespace std;
 #define GLUT_TEXT GLUT_BITMAP_HELVETICA_12
 #endif // _WIN32
 
-void VisitDraw::visit(Bird bird) {
-    bird.draw();
+void VisitDraw::visit(Bird* bird) {
+    bird->draw();
 }
-void VisitDraw::visit(Bullet bullet) {
-    bullet.output();
+void VisitDraw::visit(Bullet* bullet) {
+    bullet->output();
 }
-void VisitDraw::visit(Fragment fragment) {
-    fragment.render();
-}
-
-void VisitMove::visit(Bird bird) {
-    bird.advance();
-}
-void VisitMove::visit(Bullet bullet) {
-    bullet.move(effects);
-}
-void VisitMove::visit(Fragment fragment) {
-    fragment.fly();
+void VisitDraw::visit(Fragment* fragment) {
+    fragment->render();
 }
 
-void FlyingObject::accept(Visitor visitor) {
+void VisitMove::visit(Bird* bird) {
+    bird->advance();
+}
+void VisitMove::visit(Bullet* bullet) {
+    bullet->move(effects);
+}
+void VisitMove::visit(Fragment* fragment) {
+    fragment->fly();
+}
+
+//void FlyingObject::accept(Visitor* visitor) {
     
-}
+//}
 
 /************************
  * SKEET ANIMATE
@@ -80,13 +80,13 @@ void Skeet::animate()
    // move the birds and the bullets
    for (auto bird : birds)
    {
-      bird->accept(VisitMove);
+      bird->accept(vMove);
       hitRatio.adjust(bird->isDead() ? -1 : 0);
    }
    for (auto bullet : bullets)
-      bullet->accept(VisitMove);
+      bullet->accept(vMove);
    for (auto fragment : effects)
-      fragment->accept(VisitMove);
+      fragment->accept(vMove);
       
    // hit detection
    for (auto element : birds)
@@ -253,7 +253,7 @@ void drawText(const Point& topLeft, const char* text)
    glColor3f((GLfloat)1.0 /* red % */, (GLfloat)1.0 /* green % */, (GLfloat)1.0 /* blue % */);
 
    // prepare to output the text from the top-left corner
-   glRasterPos2f((GLfloat)topLeft.getX(), (GLfloat)topLeft.getY()));
+   glRasterPos2f((GLfloat)topLeft.getX(), (GLfloat)topLeft.getY());
 
    // loop through the text
    for (const char* p = text; *p; p++)
@@ -279,13 +279,13 @@ void Skeet::drawLevel() const
    // output the birds, bullets, and fragments
    
    for (auto fragment : effects)
-       fragment->accept(VisitDraw);
+       fragment->accept(vDraw);
       //effect->render();
    for (auto bullet : bullets)
-       bullet->accept(VisitDraw);
+       bullet->accept(vDraw);
       //bullet->output();
    for (auto bird : birds)
-       bird->accept(VisitDraw);
+       bird->accept(vDraw);
       //bird->draw();
    
    // status

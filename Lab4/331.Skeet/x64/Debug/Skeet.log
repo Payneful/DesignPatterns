@@ -1,33 +1,64 @@
 ﻿  bird.cpp
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(35,17): error C2061: syntax error: identifier 'Visitor'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(18,1): error C2504: 'FlyingObject': base class undefined
 C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(57,17): error C2061: syntax error: identifier 'Visitor'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(22,1): error C2504: 'FlyingObject': base class undefined
 C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(43,16): error C2061: syntax error: identifier 'Visitor'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(29,16): error C2061: syntax error: identifier 'Bird'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(38,16): error C2061: syntax error: identifier 'Bird'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(78,15): error C2065: 'Bird': undeclared identifier
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(78,20): error C2059: syntax error: '>'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.cpp(69,13): error C2039: 'execute': is not a member of 'Visitor'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(23): message : see declaration of 'Visitor'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(25,24): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(32,16): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(41,16): error C2061: syntax error: identifier 'Bird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(81,15): error C2065: 'Bird': undeclared identifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(81,20): error C2059: syntax error: '>'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.cpp(69,24): error C2664: 'void Visitor::visit(Bullet *)': cannot convert argument 1 from 'Bird *' to 'Bullet *'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.cpp(69,20): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(26,18): message : see declaration of 'Visitor::visit'
   bullet.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(19,1): error C2504: 'FlyingObject': base class undefined
 C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(47,16): error C2061: syntax error: identifier 'Visitor'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(30,16): error C2061: syntax error: identifier 'Bullet'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(31,16): error C2061: syntax error: identifier 'Fragment'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(31,25): error C2535: 'void VisitDraw::visit(void)': member function already defined or declared
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(30): message : see declaration of 'VisitDraw::visit'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(36,15): error C2065: 'Effect': undeclared identifier
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(36,22): error C2059: syntax error: '>'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(39,16): error C2061: syntax error: identifier 'Bullet'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(40,16): error C2061: syntax error: identifier 'Fragment'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(40,25): error C2535: 'void VisitMove::visit(void)': member function already defined or declared
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(39): message : see declaration of 'VisitMove::visit'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(79,15): error C2065: 'Bullet': undeclared identifier
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(79,22): error C2059: syntax error: '>'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(80,15): error C2065: 'Effect': undeclared identifier
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(80,22): error C2059: syntax error: '>'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(52,13): error C2039: 'execute': is not a member of 'Visitor'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(23): message : see declaration of 'Visitor'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(26,24): error C2061: syntax error: identifier 'Bullet'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(27,24): error C2061: syntax error: identifier 'Fragment'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(27,46): error C2535: 'void Visitor::visit(void)': member function already defined or declared
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(26): message : see declaration of 'Visitor::visit'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(33,16): error C2061: syntax error: identifier 'Bullet'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(34,16): error C2061: syntax error: identifier 'Fragment'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(34,35): error C2535: 'void VisitDraw::visit(void)': member function already defined or declared
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(33): message : see declaration of 'VisitDraw::visit'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(39,15): error C2065: 'Effect': undeclared identifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(39,22): error C2059: syntax error: '>'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(42,16): error C2061: syntax error: identifier 'Bullet'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(43,16): error C2061: syntax error: identifier 'Fragment'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(43,35): error C2535: 'void VisitMove::visit(void)': member function already defined or declared
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(42): message : see declaration of 'VisitMove::visit'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(82,15): error C2065: 'Bullet': undeclared identifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(82,22): error C2059: syntax error: '>'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(83,15): error C2065: 'Effect': undeclared identifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(83,22): error C2059: syntax error: '>'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(52,24): error C2664: 'void Visitor::visit(Bird *)': cannot convert argument 1 from 'Bullet *' to 'Bird *'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(52,20): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(25,18): message : see declaration of 'Visitor::visit'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(107): error C2259: 'Exhaust': cannot instantiate abstract class
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(83): message : see declaration of 'Exhaust'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(107): message : due to following members:
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(107): message : 'void FlyingObject::accept(Visitor *)': is abstract
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(48): message : see declaration of 'FlyingObject::accept'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(107,33): error C2259: 'Exhaust': cannot instantiate abstract class
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(83): message : see declaration of 'Exhaust'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(107,33): message : due to following members:
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(107,33): message : 'void FlyingObject::accept(Visitor *)': is abstract
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(48): message : see declaration of 'FlyingObject::accept'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(125): error C2259: 'Streek': cannot instantiate abstract class
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(64): message : see declaration of 'Streek'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(125): message : due to following members:
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(125): message : 'void FlyingObject::accept(Visitor *)': is abstract
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(48): message : see declaration of 'FlyingObject::accept'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(125,33): error C2259: 'Streek': cannot instantiate abstract class
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(64): message : see declaration of 'Streek'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(125,33): message : due to following members:
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.cpp(125,33): message : 'void FlyingObject::accept(Visitor *)': is abstract
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(48): message : see declaration of 'FlyingObject::accept'
   effect.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(19,1): error C2504: 'FlyingObject': base class undefined
 C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(47,16): error C2061: syntax error: identifier 'Visitor'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(22,1): error C2504: 'FlyingObject': base class undefined
 C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(43,16): error C2061: syntax error: identifier 'Visitor'
 C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(49,32): error C2065: 'Effect': undeclared identifier
 C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(49,39): error C2059: syntax error: '>'
@@ -37,64 +68,33 @@ C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(116,24): 
 C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(116,31): error C2059: syntax error: '>'
 C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(137,24): error C2065: 'Effect': undeclared identifier
 C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(137,31): error C2059: syntax error: '>'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(31,16): error C2061: syntax error: identifier 'Fragment'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(36,15): error C2065: 'Effect': undeclared identifier
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(36,22): error C2059: syntax error: '>'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(40,16): error C2061: syntax error: identifier 'Fragment'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(80,15): error C2065: 'Effect': undeclared identifier
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(80,22): error C2059: syntax error: '>'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.cpp(59,13): error C2039: 'execute': is not a member of 'Visitor'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(23): message : see declaration of 'Visitor'
-  game.cpp
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(47,16): error C2061: syntax error: identifier 'Visitor'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(35,17): error C2061: syntax error: identifier 'Visitor'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(57,17): error C2061: syntax error: identifier 'Visitor'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(43,16): error C2061: syntax error: identifier 'Visitor'
-  gun.cpp
-  point.cpp
-  score.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(27,24): error C2061: syntax error: identifier 'Fragment'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(34,16): error C2061: syntax error: identifier 'Fragment'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(39,15): error C2065: 'Effect': undeclared identifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(39,22): error C2059: syntax error: '>'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(43,16): error C2061: syntax error: identifier 'Fragment'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(83,15): error C2065: 'Effect': undeclared identifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(83,22): error C2059: syntax error: '>'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.cpp(59,24): error C2664: 'void Visitor::visit(Bird *)': cannot convert argument 1 from 'Fragment *' to 'Bird *'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.cpp(59,20): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(25,18): message : see declaration of 'Visitor::visit'
   skeet.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(19,1): error C2504: 'FlyingObject': base class undefined
 C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(47,16): error C2061: syntax error: identifier 'Visitor'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(35,17): error C2061: syntax error: identifier 'Visitor'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(18,1): error C2504: 'FlyingObject': base class undefined
 C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(57,17): error C2061: syntax error: identifier 'Visitor'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(22,1): error C2504: 'FlyingObject': base class undefined
 C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(43,16): error C2061: syntax error: identifier 'Visitor'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(34,17): error C2259: 'Bird': cannot instantiate abstract class
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(18): message : see declaration of 'Bird'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(34,17): message : due to following members:
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(34,17): message : 'void Bird::draw(void)': is abstract
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(50): message : see declaration of 'Bird::draw'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(34,17): message : 'void Bird::advance(void)': is abstract
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(51): message : see declaration of 'Bird::advance'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(37,17): error C2259: 'Bullet': cannot instantiate abstract class
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(21): message : see declaration of 'Bullet'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(37,17): message : due to following members:
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(37,17): message : 'void Bullet::output(void)': is abstract
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(47): message : see declaration of 'Bullet::output'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(44,17): error C2259: 'Bird': cannot instantiate abstract class
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(18): message : see declaration of 'Bird'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(44,17): message : due to following members:
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(44,17): message : 'void Bird::draw(void)': is abstract
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(50): message : see declaration of 'Bird::draw'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(44,17): message : 'void Bird::advance(void)': is abstract
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(51): message : see declaration of 'Bird::advance'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(47,17): error C2259: 'Bullet': cannot instantiate abstract class
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(21): message : see declaration of 'Bullet'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(47,17): message : due to following members:
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(47,17): message : 'void Bullet::output(void)': is abstract
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(47): message : see declaration of 'Bullet::output'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(83,20): error C2275: 'VisitMove': illegal use of this type as an expression
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(34): message : see declaration of 'VisitMove'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(87,22): error C2275: 'VisitMove': illegal use of this type as an expression
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(34): message : see declaration of 'VisitMove'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(89,24): error C2275: 'VisitMove': illegal use of this type as an expression
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(34): message : see declaration of 'VisitMove'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(256,67): error C2059: syntax error: ')'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(281,25): error C2275: 'VisitDraw': illegal use of this type as an expression
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(27): message : see declaration of 'VisitDraw'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(284,23): error C2275: 'VisitDraw': illegal use of this type as an expression
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(27): message : see declaration of 'VisitDraw'
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(287,21): error C2275: 'VisitDraw': illegal use of this type as an expression
-C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(27): message : see declaration of 'VisitDraw'
-  time.cpp
-  uiInteract.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(83,25): error C2660: 'Bird::accept': function does not take 1 arguments
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(47,9): message : see declaration of 'Bird::accept'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(87,27): error C2660: 'Bullet::accept': function does not take 1 arguments
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(43,9): message : see declaration of 'Bullet::accept'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(89,17): error C2039: 'accept': is not a member of 'Effect'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(17): message : see declaration of 'Effect'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(282,18): error C2039: 'accept': is not a member of 'Effect'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\effect.h(17): message : see declaration of 'Effect'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(285,28): error C2660: 'Bullet::accept': function does not take 1 arguments
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bullet.h(43,9): message : see declaration of 'Bullet::accept'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(288,26): error C2660: 'Bird::accept': function does not take 1 arguments
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\bird.h(47,9): message : see declaration of 'Bird::accept'
   Generating Code...

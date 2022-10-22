@@ -55,8 +55,8 @@ double random(double min, double max)
 /************************************************************************
  * FRAGMENT constructor
  *************************************************************************/
-void Fragment::accept(Visitor visitor) {
-    visitor.execute(this);
+void Fragment::accept(Visitor* visitor) {
+    visitor->visit(this);
 }
 
 Fragment::Fragment(const Point & pt, const Velocity & v) : Effect(pt)

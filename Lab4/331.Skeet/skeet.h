@@ -21,30 +21,31 @@
 #include <list>
 
 class Visitor {
-    virtual void visit(Bird) = 0;
-    virtual void visit(Bullet) = 0;
-    virtual void visit(Fragment) = 0;
-};
-
-class VisitDraw {
 public:
-    void visit(Bird);
-    void visit(Bullet);
-    void visit(Fragment);
+    virtual void visit(Bird* bird) = 0;
+    virtual void visit(Bullet* bullet) = 0;
+    virtual void visit(Fragment* fragment) = 0;
 };
 
-class VisitMove {
+class VisitDraw: public Visitor {
+public:
+    void visit(Bird* bird);
+    void visit(Bullet* bullet);
+    void visit(Fragment* fragment);
+};
+
+class VisitMove: public Visitor {
 private:
     std::list<Effect*> effects;    // the fragments of a dead bird.
 public:
-    void visit(Bird);
-    void visit(Bullet);
-    void visit(Fragment);
+    void visit(Bird* bird);
+    void visit(Bullet* bullet);
+    void visit(Fragment* fragment);
 };
 
 class FlyingObject {
 public:
-    virtual void accept(Visitor) = 0;
+    virtual void accept(Visitor* visitor) = 0;
 };
 /*************************************************************************
  * Skeet
@@ -84,4 +85,6 @@ private:
     Score score;                   // the player's score
     HitRatio hitRatio;               // the hit ratio for the birds
     Point dimensions;              // size of the screen
+    VisitMove* vMove;
+    VisitDraw* vDraw;
 };

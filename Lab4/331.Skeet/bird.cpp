@@ -65,8 +65,8 @@ double randomFloat(double min, double max)
 /***************************************************************/
 /***************************************************************/
 
-void Bird::accept(Visitor visitor) {
-    visitor.execute(this);
+void Bird::accept(Visitor* visitor) {
+    visitor->visit(this);
 }
 
 /******************************************************************
