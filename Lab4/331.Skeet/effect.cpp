@@ -55,6 +55,10 @@ double random(double min, double max)
 /************************************************************************
  * FRAGMENT constructor
  *************************************************************************/
+void Fragment::accept(Visitor visitor) {
+    visitor.execute(this);
+}
+
 Fragment::Fragment(const Point & pt, const Velocity & v) : Effect(pt)
 {
    // the velocity is a random kick plus the velocity of the thing that died

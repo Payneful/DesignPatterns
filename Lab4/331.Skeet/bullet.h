@@ -10,6 +10,7 @@
 #pragma once
 #include "point.h"
 #include "effect.h"
+#include "skeet.h"
 #include <list>
 #include <cassert>
 
@@ -39,6 +40,7 @@ public:
    Velocity getVelocity()  const { return v;      }
    double getRadius()      const { return radius; }
    int getValue()          const { return value;  }
+   void accept(Visitor);
 
    // special functions
    virtual void death(std::list<Bullet *> & bullets) {}

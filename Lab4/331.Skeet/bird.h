@@ -9,6 +9,7 @@
 
 #pragma once
 #include "point.h"
+#include "skeet.h"
 
 /**********************
  * BIRD
@@ -43,6 +44,7 @@ public:
       return (pt.getX() < -radius || pt.getX() >= dimensions.getX() + radius ||
               pt.getY() < -radius || pt.getY() >= dimensions.getY() + radius);
    }
+   void accept(Visitor);
 
    // special functions
    virtual void draw() = 0;

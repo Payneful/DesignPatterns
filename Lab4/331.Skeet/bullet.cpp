@@ -48,6 +48,9 @@ Bullet::Bullet(double angle, double speed, double radius, int value) :
    assert(v.getDx() <= 0.0);
    assert(v.getDy() >= 0.0);
 }
+void Bullet::accept(Visitor visitor) {
+    visitor.execute(this);
+}
 
 /*********************************************
  * BOMB DEATH

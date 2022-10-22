@@ -31,12 +31,37 @@ using namespace std;
 #define GLUT_TEXT GLUT_BITMAP_HELVETICA_12
 #endif // _WIN32
 
+void VisitDraw::visit(Bird bird) {
+    bird.draw();
+}
+void VisitDraw::visit(Bullet bullet) {
+    bullet.output();
+}
+void VisitDraw::visit(Fragment fragment) {
+    fragment.render();
+}
+
+void VisitMove::visit(Bird bird) {
+    bird.advance();
+}
+void VisitMove::visit(Bullet bullet) {
+    bullet.move(effects);
+}
+void VisitMove::visit(Fragment fragment) {
+    fragment.fly();
+}
+
+void FlyingObject::accept(Visitor visitor) {
+    
+}
+
 /************************
  * SKEET ANIMATE
  * move the gameplay by one unit of time
  ************************/
 void Skeet::animate()
 {
+
    time++;
    
    // if status, then do not move the game
@@ -53,15 +78,15 @@ void Skeet::animate()
    spawn();
    
    // move the birds and the bullets
-   for (auto element : birds)
+   for (auto bird : birds)
    {
-      element->advance();
-      hitRatio.adjust(element->isDead() ? -1 : 0);
+      bird->accept(VisitMove);
+      hitRatio.adjust(bird->isDead() ? -1 : 0);
    }
    for (auto bullet : bullets)
-      bullet->move(effects);
-   for (auto effect : effects)
-      effect->fly();
+      bullet->accept(VisitMove);
+   for (auto fragment : effects)
+      fragment->accept(VisitMove);
       
    // hit detection
    for (auto element : birds)
@@ -228,7 +253,7 @@ void drawText(const Point& topLeft, const char* text)
    glColor3f((GLfloat)1.0 /* red % */, (GLfloat)1.0 /* green % */, (GLfloat)1.0 /* blue % */);
 
    // prepare to output the text from the top-left corner
-   glRasterPos2f((GLfloat)topLeft.getX(), (GLfloat)topLeft.getY());
+   glRasterPos2f((GLfloat)topLeft.getX(), (GLfloat)topLeft.getY()));
 
    // loop through the text
    for (const char* p = text; *p; p++)
@@ -252,12 +277,16 @@ void Skeet::drawLevel() const
    gun.display();
          
    // output the birds, bullets, and fragments
-   for (auto effect : effects)
-      effect->render();
+   
+   for (auto fragment : effects)
+       fragment->accept(VisitDraw);
+      //effect->render();
    for (auto bullet : bullets)
-      bullet->output();
-   for (auto element : birds)
-      element->draw();
+       bullet->accept(VisitDraw);
+      //bullet->output();
+   for (auto bird : birds)
+       bird->accept(VisitDraw);
+      //bird->draw();
    
    // status
    drawText(Point(10,                         dimensions.getY() - 30), score.getText()  );

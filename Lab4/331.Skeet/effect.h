@@ -9,6 +9,7 @@
 
 #pragma once
 #include "point.h"
+#include "skeet.h"
 
 /**********************
  * Effect: stuff that is not interactive
@@ -30,6 +31,8 @@ public:
     
     // it is dead when age goes to 0.0
     bool isDead() const { return age <= 0.0; }
+
+    void accept(Visitor);
 };
 
 /**********************
@@ -50,6 +53,8 @@ public:
     
     // move it forward with regards to inertia. Let it age
     void fly();
+
+    void accept(Visitor visitor);
 };
 
 /**********************

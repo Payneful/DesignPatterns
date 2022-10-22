@@ -20,6 +20,32 @@
 
 #include <list>
 
+class Visitor {
+    virtual void visit(Bird) = 0;
+    virtual void visit(Bullet) = 0;
+    virtual void visit(Fragment) = 0;
+};
+
+class VisitDraw {
+public:
+    void visit(Bird);
+    void visit(Bullet);
+    void visit(Fragment);
+};
+
+class VisitMove {
+private:
+    std::list<Effect*> effects;    // the fragments of a dead bird.
+public:
+    void visit(Bird);
+    void visit(Bullet);
+    void visit(Fragment);
+};
+
+class FlyingObject {
+public:
+    virtual void accept(Visitor) = 0;
+};
 /*************************************************************************
  * Skeet
  * The game class
