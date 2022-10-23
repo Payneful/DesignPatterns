@@ -9,6 +9,9 @@
 
 #pragma once
 #include <string>
+#include "Mediator.h"
+
+class Colleague;
 
 /**********************
  * STATUS
@@ -30,12 +33,13 @@ public:
 class Score : public Status
 {
 public:
-    Score() { reset(); }
+    Score() { reset(); colleague.setColleague(this); }
     std::string getText() const;
     void adjust(int value) { points += value; }
     void reset() { points = 0; }
 private:
     int points;
+    ScoreColleague colleague;
 };
 
 /**********************
@@ -45,11 +49,12 @@ private:
 class HitRatio : public Status
 {
 public:
-    HitRatio()  { reset(); }
+    HitRatio() { reset(); colleague.setColleague(this); }
     std::string getText() const;
     void adjust(int value);
     void reset() { numKilled = numMissed = 0; }
 private:
     int numKilled;
     int numMissed;
+    HitRatioColleague colleague;
 };

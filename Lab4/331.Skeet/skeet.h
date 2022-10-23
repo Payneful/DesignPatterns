@@ -29,7 +29,22 @@ class Skeet
 {
 public:
     Skeet(Point & dimensions) : dimensions(dimensions),
-        gun(Point(800.0, 0.0)), time(), score(), hitRatio() {}
+        gun(Point(800.0, 0.0)), time(), score(), hitRatio()
+   {
+      pMediator = new Mediator();
+      pColleagueScore = new ScoreColleague();
+      pColleagueHitRatio = new HitRatioColleague();
+      doMediatorEnrollments();
+   }
+   
+   // enroll colleagues in mediator and mediator in colleagues
+   void doMediatorEnrollments()
+   {
+      pColleagueScore->enroll(pMediator);
+      pColleagueHitRatio->enroll(pMediator);
+      pMediator->enroll(pColleagueScore);
+      pMediator->enroll(pColleagueHitRatio);
+   }
 
     // handle all user input
     void interact(const UserInput& ui);
@@ -59,5 +74,7 @@ private:
    Score score;                   // the player's score
    HitRatio hitRatio;               // the hit ratio for the birds
    Point dimensions;              // size of the screen
-   Mediator mediator;
+   Mediator* pMediator;
+   Colleague* pColleagueScore;
+   Colleague* pColleagueHitRatio;
 };

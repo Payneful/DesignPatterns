@@ -18,6 +18,7 @@ class Bird;
 class Score;
 class HitRatio;
 class Bullet;
+class Status;
 /*****************************/
 
 class Colleague;
@@ -33,15 +34,15 @@ protected:
 public:
    Mediator() {}
    ~Mediator() {
-      for (unsigned int i = 0; i < colleagues.size(); i++)
+      for (Colleague* objects : colleagues)
       {
-         delete colleagues[i];
+         delete objects;
       }
       colleagues.clear();
    }
    
    //get
-   Mediator* getMediator() {return this;}
+   Mediator* getMediator() { return this; }
    
    void notify(const Message& message);
    void enroll(Colleague* const enrolle);
@@ -54,19 +55,19 @@ struct Message
    int value;
 };
 
+//https://stackoverflow.com/questions/1175646/c-when-should-i-use-a-pointer-member-in-a-class
 class Colleague
 {
 protected:
-   std::vector<Mediator*> mediators;
    Mediator mediator;
    
 public:
-   //get
+   //interfaces
    virtual Colleague* getColleague() = 0;
-   
    virtual void notify(Message const &message) = 0;
-   void enroll(Mediator* const enrolle);
-   void unenroll(Mediator* const enrolle);
+   
+   void enroll(Mediator* const enrolle)   { this->mediator = *enrolle; }
+   void unenroll(Mediator* const enrolle) { this->mediator.~Mediator(); }
 };
 
 class BirdColleague : public Colleague
@@ -76,20 +77,11 @@ private:
    Bird* pBird;
    
 public:
-   BirdColleague() {}
-   BirdColleague(Bird* const bird) : pBird(bird)
-   {
-      mediator.enroll(this);
-   }
-   
+   BirdColleague()               { mediator.enroll(this); }
    //get
-   Colleague* getColleague()           { return this; }
+   Colleague* getColleague()     { return this; }
    //set
-   void setColleague(Bird* bird)
-   {
-      this->pBird = bird;
-      mediator.enroll(this);
-   }
+   void setColleague(Bird* bird) { this->pBird = bird; }
    
    void notify(Message const &message) {}
    void wentOutOfBounds();
@@ -103,22 +95,11 @@ private:
    Bullet* pBullet;
    
 public:
-   BulletColleague() {}
-   /*
-   BulletColleague(Bullet* const bullet) : pBullet(bullet)
-   {
-      mediator.enroll(this);
-   }
-   */
-   
+   BulletColleague()                 { mediator.enroll(this); }
    //get
-   Colleague* getColleague()           { return this; }
+   Colleague* getColleague()         { return this; }
    //set
-   void setColleague(Bullet* bullet)
-   {
-      this->pBullet = bullet;
-      mediator.enroll(this);
-   }
+   void setColleague(Bullet* bullet) { this->pBullet = bullet; }
    
    void notify(Message const &message) {}
    void firedBullet();
@@ -127,33 +108,27 @@ public:
 class ScoreColleague : public Colleague
 {
 private:
-   Score status;
+   Score* pStatus;
    
 public:
+   ScoreColleague();
    //get
-   Colleague* getColleague() { return this; }
-   
-   void notify(Message const &message)
-   {
-      status.adjust(message.value);
-   }
+   Colleague* getColleague()        { return this; }
+   void setColleague(Score* status) { this->pStatus = status; }
+   void notify(Message const &message);
 };
 
 class HitRatioColleague : public Colleague
 {
 private:
-   HitRatio status;
+   HitRatio* pStatus;
    
 public:
+   HitRatioColleague();
    //get
-   Colleague* getColleague() { return this; }
-   
-   void notify(Message const &message)
-   {
-      if (message.type == Bird_died) {
-         status.adjust(message.value);
-      }
-   }
+   Colleague* getColleague()           { return this; }
+   void setColleague(HitRatio* status) { this->pStatus = status; }
+   void notify(Message const &message);
 };
 
 #endif /* Mediator_h */

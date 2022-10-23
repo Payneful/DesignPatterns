@@ -60,15 +60,18 @@ void Mediator::unenroll(Colleague* const enrolle)
  * add mediators
  * https://stackoverflow.com/questions/5503352/const-before-or-const-after
  ****************************************************************/
+/*
 void Colleague::enroll(Mediator* const enrolle)
 {
    mediators.push_back(enrolle);
 }
+*/
 
 /******************************************************************
  * UNENROLL
  * remove mediators
  ****************************************************************/
+/*
 void Colleague::unenroll(Mediator* const enrolle)
 {
    for (auto it = mediators.begin(); it != mediators.end();) {
@@ -78,6 +81,7 @@ void Colleague::unenroll(Mediator* const enrolle)
          ++it;
    }
 }
+*/
 
 /***************************************************************/
 /***************************************************************/
@@ -125,4 +129,52 @@ void BulletColleague::firedBullet()
    message.value = pBullet->getValue();
    mediator.notify(message);
    mediator.unenroll(this);
+}
+
+/***************************************************************/
+/***************************************************************/
+/*                       ScoreColleague                        */
+/***************************************************************/
+/***************************************************************/
+/******************************************************************
+ * CONSTRUCTOR
+ *https://stackoverflow.com/questions/19962812/error-member-access-into-incomplete-type-forward-declaration-of
+ *https://mrcodehunter.com/incomplete-type-is-not-allowed/
+ ****************************************************************/
+ScoreColleague::ScoreColleague()
+{
+   pStatus = new Score();
+}
+
+/******************************************************************
+ * NOTIFY
+ * sends message to object
+ ****************************************************************/
+void ScoreColleague::notify(const Message &message)
+{
+   pStatus->adjust(message.value);
+}
+
+/***************************************************************/
+/***************************************************************/
+/*                     HitRatioColleague                       */
+/***************************************************************/
+/***************************************************************/
+/******************************************************************
+ * CONSTRUCTOR
+ ****************************************************************/
+HitRatioColleague::HitRatioColleague()
+{
+   pStatus = new HitRatio();
+}
+
+/******************************************************************
+ * NOTIFY
+ * sends message to object
+ ****************************************************************/
+void HitRatioColleague::notify(const Message &message)
+{
+   if (message.type == Bird_died) {
+      pStatus->adjust(message.value);
+   }
 }

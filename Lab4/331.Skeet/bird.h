@@ -26,13 +26,10 @@ protected:
    double radius;             // the size (radius) of the flyer
    bool dead;                 // is this flyer dead?
    int points;                // how many points is this worth?
-   BirdColleague* colleague;
+   BirdColleague colleague;
    
 public:
-   Bird() : dead(false), points(0), radius(1.0)
-   {
-      colleague->setColleague(this);
-   }
+   Bird() : dead(false), points(0), radius(1.0) { colleague.setColleague(this); }
    
    // setters
    void operator=(const Point    & rhs) { pt = rhs;    }
@@ -62,9 +59,10 @@ public:
       }
    }
    
-   void wasShot()
+   void wasShot(Mediator* mediator)
    {
       kill();
+      colleague.enroll(mediator);
       colleague.wasShot();
    }
 

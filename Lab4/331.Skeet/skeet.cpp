@@ -77,7 +77,7 @@ void Skeet::animate()
          {
             for (int i = 0; i < 25; i++)
                effects.push_back(new Fragment(bullet->getPosition(), bullet->getVelocity()));
-            element->wasShot();
+            element->wasShot(pMediator);
             bullet->wasFired();
             //hitRatio.adjust(1);
          }
