@@ -33,28 +33,28 @@ public:
 class Score : public Status
 {
 public:
-    Score() { reset(); colleague.setColleague(this); }
-    std::string getText() const;
-    void adjust(int value) { points += value; }
-    void reset() { points = 0; }
+   Score() { reset(); }
+   std::string getText() const;
+   void adjust(int value) { points += value; }
+   void reset() { points = 0; }
 private:
-    int points;
-    ScoreColleague colleague;
+   int points;
+   ScoreColleague* pScoreColleague;
 };
 
-/**********************
+/************************
  * HIT RATIO
  * Bird hit ratio
  **********************/
 class HitRatio : public Status
 {
 public:
-    HitRatio() { reset(); colleague.setColleague(this); }
-    std::string getText() const;
-    void adjust(int value);
-    void reset() { numKilled = numMissed = 0; }
+   HitRatio() { reset(); }
+   std::string getText() const;
+   void adjust(int value);
+   void reset() { numKilled = numMissed = 0; }
 private:
-    int numKilled;
-    int numMissed;
-    HitRatioColleague colleague;
+   int numKilled;
+   int numMissed;
+   HitRatioColleague* pHitRatioColleague;
 };

@@ -55,12 +55,8 @@ void Skeet::animate()
    // move the birds and the bullets
    for (auto element : birds)
    {
-      element->advance();
-      /*
-      if (element->isDead())
-         element->wasShot();
-      */
-      hitRatio.adjust(element->isDead() ? -1 : 0);
+      element->advance(pMediator);
+      //hitRatio.adjust(element->isDead() ? -1 : 0);
    }
    for (auto bullet : bullets)
       bullet->move(effects);
@@ -78,10 +74,10 @@ void Skeet::animate()
             for (int i = 0; i < 25; i++)
                effects.push_back(new Fragment(bullet->getPosition(), bullet->getVelocity()));
             element->wasShot(pMediator);
-            bullet->wasFired();
+            bullet->hitTarget(pMediator);
             //hitRatio.adjust(1);
          }
-   
+            
    // remove the zombie birds
    for (auto it = birds.begin(); it != birds.end();)
       if ((*it)->isDead())
@@ -335,7 +331,8 @@ void Skeet::interact(const UserInput & ui)
    if (nullptr != p)
    {
       bullets.push_back(p);
-      score.adjust(0 - p->getValue());
+      p->wasFired(pMediator);
+      //score.adjust(0 - p->getValue());
    }
    
    // send movement information to all the bullets. Only the missile cares.

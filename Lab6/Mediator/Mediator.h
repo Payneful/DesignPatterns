@@ -18,7 +18,6 @@ class Bird;
 class Score;
 class HitRatio;
 class Bullet;
-class Status;
 /*****************************/
 
 class Colleague;
@@ -59,15 +58,17 @@ struct Message
 class Colleague
 {
 protected:
-   Mediator mediator;
+   Mediator* mediator;
    
 public:
+   ~Colleague()                           { delete mediator; }
+   
    //interfaces
    virtual Colleague* getColleague() = 0;
    virtual void notify(Message const &message) = 0;
    
-   void enroll(Mediator* const enrolle)   { this->mediator = *enrolle; }
-   void unenroll(Mediator* const enrolle) { this->mediator.~Mediator(); }
+   void enroll(Mediator* const enrolle)   { this->mediator = enrolle; }
+   void unenroll(Mediator* const enrolle) { this->mediator->~Mediator(); }
 };
 
 class BirdColleague : public Colleague
@@ -77,13 +78,13 @@ private:
    Bird* pBird;
    
 public:
-   BirdColleague()               { mediator.enroll(this); }
+   BirdColleague()               { }
    //get
    Colleague* getColleague()     { return this; }
    //set
    void setColleague(Bird* bird) { this->pBird = bird; }
    
-   void notify(Message const &message) {}
+   void notify(Message const &message) { }
    void wentOutOfBounds();
    void wasShot();
 };
@@ -95,7 +96,7 @@ private:
    Bullet* pBullet;
    
 public:
-   BulletColleague()                 { mediator.enroll(this); }
+   BulletColleague()                 { }
    //get
    Colleague* getColleague()         { return this; }
    //set
@@ -103,31 +104,33 @@ public:
    
    void notify(Message const &message) {}
    void firedBullet();
+   void bulletHitTarget();
 };
 
 class ScoreColleague : public Colleague
 {
 private:
-   Score* pStatus;
+   Score* pScore;
    
 public:
    ScoreColleague();
    //get
-   Colleague* getColleague()        { return this; }
-   void setColleague(Score* status) { this->pStatus = status; }
+   Colleague* getColleague()         { return this; }
+   Score* getScoreFromColleague()    { return this->pScore; }
+   
    void notify(Message const &message);
 };
 
 class HitRatioColleague : public Colleague
 {
 private:
-   HitRatio* pStatus;
+   HitRatio* pHitRatio;
    
 public:
    HitRatioColleague();
    //get
-   Colleague* getColleague()           { return this; }
-   void setColleague(HitRatio* status) { this->pStatus = status; }
+   Colleague* getColleague()                { return this; }
+   HitRatio* getHitRatioFromColleague()     { return this->pHitRatio; }
    void notify(Message const &message);
 };
 

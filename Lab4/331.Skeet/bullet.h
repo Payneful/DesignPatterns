@@ -50,10 +50,17 @@ public:
    virtual void input(bool isUp, bool isDown, bool isB) {}
    virtual void move(std::list<Effect*> &effects);
    
-   void wasFired()
+   void wasFired(Mediator* mediator)
+   {
+      colleague.enroll(mediator);
+      colleague.firedBullet();
+   }
+   
+   void hitTarget(Mediator* mediator)
    {
       kill();
-      colleague.firedBullet();
+      colleague.enroll(mediator);
+      colleague.bulletHitTarget();
    }
 
 protected:

@@ -51,40 +51,6 @@ void Mediator::unenroll(Colleague* const enrolle)
 
 /***************************************************************/
 /***************************************************************/
-/*                         Colleague                           */
-/***************************************************************/
-/***************************************************************/
-
-/******************************************************************
- * ENROLL
- * add mediators
- * https://stackoverflow.com/questions/5503352/const-before-or-const-after
- ****************************************************************/
-/*
-void Colleague::enroll(Mediator* const enrolle)
-{
-   mediators.push_back(enrolle);
-}
-*/
-
-/******************************************************************
- * UNENROLL
- * remove mediators
- ****************************************************************/
-/*
-void Colleague::unenroll(Mediator* const enrolle)
-{
-   for (auto it = mediators.begin(); it != mediators.end();) {
-      if ((*it)->getMediator() == enrolle)
-         mediators.erase(it);
-      else
-         ++it;
-   }
-}
-*/
-
-/***************************************************************/
-/***************************************************************/
 /*                       BirdColleague                         */
 /***************************************************************/
 /***************************************************************/
@@ -97,8 +63,7 @@ void BirdColleague::wentOutOfBounds()
 {
    message.type = Bird_died;
    message.value = -pBird->getPoints();
-   mediator.notify(message);
-   mediator.unenroll(this);
+   mediator->notify(message);
 }
 
 /******************************************************************
@@ -109,8 +74,7 @@ void BirdColleague::wasShot()
 {
    message.type = Bird_died;
    message.value = pBird->getPoints();
-   mediator.notify(message);
-   mediator.unenroll(this);
+   mediator->notify(message);
 }
 
 /***************************************************************/
@@ -126,9 +90,19 @@ void BirdColleague::wasShot()
 void BulletColleague::firedBullet()
 {
    message.type = Bullet_fired;
+   message.value = -pBullet->getValue();
+   mediator->notify(message);
+}
+
+/******************************************************************
+ * BULLETHITTARGET
+ * sends message to mediator
+ ****************************************************************/
+void BulletColleague::bulletHitTarget()
+{
+   message.type = Bullet_fired;
    message.value = pBullet->getValue();
-   mediator.notify(message);
-   mediator.unenroll(this);
+   mediator->notify(message);
 }
 
 /***************************************************************/
@@ -143,7 +117,7 @@ void BulletColleague::firedBullet()
  ****************************************************************/
 ScoreColleague::ScoreColleague()
 {
-   pStatus = new Score();
+   pScore = new Score();
 }
 
 /******************************************************************
@@ -152,7 +126,7 @@ ScoreColleague::ScoreColleague()
  ****************************************************************/
 void ScoreColleague::notify(const Message &message)
 {
-   pStatus->adjust(message.value);
+   pScore->adjust(message.value);
 }
 
 /***************************************************************/
@@ -165,7 +139,7 @@ void ScoreColleague::notify(const Message &message)
  ****************************************************************/
 HitRatioColleague::HitRatioColleague()
 {
-   pStatus = new HitRatio();
+   pHitRatio = new HitRatio();
 }
 
 /******************************************************************
@@ -175,6 +149,6 @@ HitRatioColleague::HitRatioColleague()
 void HitRatioColleague::notify(const Message &message)
 {
    if (message.type == Bird_died) {
-      pStatus->adjust(message.value);
+      pHitRatio->adjust(message.value);
    }
 }

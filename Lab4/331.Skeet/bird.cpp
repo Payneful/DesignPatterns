@@ -155,7 +155,7 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
  * STANDARD ADVANCE
  * How the standard bird moves - inertia and drag
  *********************************************/
-void Standard::advance()
+void Standard::advance(Mediator* mediator)
 {
    // small amount of drag
    v *= 0.995;
@@ -163,6 +163,8 @@ void Standard::advance()
    // inertia
    pt.add(v);
 
+   colleague.enroll(mediator);
+   // out of bounds checker
    outOfBoundsChecker();
 }
 
@@ -170,7 +172,7 @@ void Standard::advance()
  * FLOATER ADVANCE
  * How the floating bird moves: strong drag and anti-gravity
  *********************************************/
-void Floater::advance()
+void Floater::advance(Mediator* mediator)
 {
    // large amount of drag
    v *= 0.990;
@@ -181,6 +183,7 @@ void Floater::advance()
    // anti-gravity
    v.addDy(0.05);
 
+   colleague.enroll(mediator);
    // out of bounds checker
    outOfBoundsChecker();
 }
@@ -189,7 +192,7 @@ void Floater::advance()
  * CRAZY ADVANCE
  * How the crazy bird moves, every half a second it changes direciton
  *********************************************/
-void Crazy::advance()
+void Crazy::advance(Mediator* mediator)
 {
    // erratic turns eery half a second or so
    if (randomInt(0, 15) == 0)
@@ -201,6 +204,7 @@ void Crazy::advance()
    // inertia
    pt.add(v);
 
+   colleague.enroll(mediator);
    // out of bounds checker
    outOfBoundsChecker();
 }
@@ -209,7 +213,7 @@ void Crazy::advance()
  * SINKER ADVANCE
  * How the sinker bird moves, no drag but gravity
  *********************************************/
-void Sinker::advance()
+void Sinker::advance(Mediator* mediator)
 {
    // gravity
    v.addDy(-0.07);
@@ -217,6 +221,7 @@ void Sinker::advance()
    // inertia
    pt.add(v);
 
+   colleague.enroll(mediator);
    // out of bounds checker
    outOfBoundsChecker();
 }

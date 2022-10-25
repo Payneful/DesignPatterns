@@ -48,6 +48,18 @@ public:
               pt.getY() < -radius || pt.getY() >= dimensions.getY() + radius);
    }
    
+   void wasShot(Mediator* mediator)
+   {
+      kill();
+      colleague.enroll(mediator);
+      colleague.wasShot();
+   }
+
+   // special functions
+   virtual void draw() = 0;
+   virtual void advance(Mediator* mediator) = 0;
+   
+protected:
    void outOfBoundsChecker()
    {
       // out of bounds checker
@@ -58,17 +70,6 @@ public:
          colleague.wentOutOfBounds();
       }
    }
-   
-   void wasShot(Mediator* mediator)
-   {
-      kill();
-      colleague.enroll(mediator);
-      colleague.wasShot();
-   }
-
-   // special functions
-   virtual void draw() = 0;
-   virtual void advance() = 0;
 };
 
 /*********************************************
@@ -80,7 +81,7 @@ class Standard : public Bird
 public:
     Standard(double radius = 25.0, double speed = 5.0, int points = 10);
     void draw();
-    void advance();
+    void advance(Mediator* mediator);
 };
 
 /*********************************************
@@ -92,7 +93,7 @@ class Floater : public Bird
 public:
     Floater(double radius = 30.0, double speed = 5.0, int points = 15);
     void draw();
-    void advance();
+    void advance(Mediator* mediator);
 };
 
 /*********************************************
@@ -104,7 +105,7 @@ class Crazy : public Bird
 public:
     Crazy(double radius = 30.0, double speed = 4.5, int points = 30);
     void draw();
-    void advance();
+    void advance(Mediator* mediator);
 };
 
 /*********************************************
@@ -116,5 +117,5 @@ class Sinker : public Bird
 public:
     Sinker(double radius = 30.0, double speed = 4.5, int points = 20);
     void draw();
-    void advance();
+    void advance(Mediator* mediator);
 };
