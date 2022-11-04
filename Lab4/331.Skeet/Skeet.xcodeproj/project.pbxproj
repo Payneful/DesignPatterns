@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9046A76429149EC7008291A4 /* Interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9046A76329149EC7008291A4 /* Interface.cpp */; };
+		9046A76B29149F93008291A4 /* InterfaceElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9046A76929149F93008291A4 /* InterfaceElement.cpp */; };
+		9046A7792914A5BB008291A4 /* LogicElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9046A76C2914A5BA008291A4 /* LogicElement.cpp */; };
+		9046A77A2914A5BB008291A4 /* Storage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9046A76D2914A5BA008291A4 /* Storage.cpp */; };
+		9046A77B2914A5BB008291A4 /* StorageGun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9046A7712914A5BA008291A4 /* StorageGun.cpp */; };
+		9046A77C2914A5BB008291A4 /* StorageTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9046A7722914A5BB008291A4 /* StorageTime.cpp */; };
+		9046A77D2914A5BB008291A4 /* StorageElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9046A7732914A5BB008291A4 /* StorageElement.cpp */; };
+		9046A77E2914A5BB008291A4 /* Logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9046A7782914A5BB008291A4 /* Logic.cpp */; };
 		C15451E627403ED30095997B /* effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C15451E527403ED30095997B /* effect.cpp */; };
 		C16B8F522744ABDE009CC1DC /* score.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C16B8F502744ABDE009CC1DC /* score.cpp */; };
 		C16F25492716733A000FA407 /* time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C16F25482716733A000FA407 /* time.cpp */; };
@@ -34,6 +42,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9046A76329149EC7008291A4 /* Interface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Interface.cpp; sourceTree = "<group>"; };
+		9046A76529149EEB008291A4 /* Interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interface.h; sourceTree = "<group>"; };
+		9046A76929149F93008291A4 /* InterfaceElement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InterfaceElement.cpp; sourceTree = "<group>"; };
+		9046A76C2914A5BA008291A4 /* LogicElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LogicElement.cpp; sourceTree = "<group>"; };
+		9046A76D2914A5BA008291A4 /* Storage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Storage.cpp; sourceTree = "<group>"; };
+		9046A76E2914A5BA008291A4 /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
+		9046A76F2914A5BA008291A4 /* StorageTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageTime.h; sourceTree = "<group>"; };
+		9046A7702914A5BA008291A4 /* LogicElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogicElement.h; sourceTree = "<group>"; };
+		9046A7712914A5BA008291A4 /* StorageGun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StorageGun.cpp; sourceTree = "<group>"; };
+		9046A7722914A5BB008291A4 /* StorageTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StorageTime.cpp; sourceTree = "<group>"; };
+		9046A7732914A5BB008291A4 /* StorageElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StorageElement.cpp; sourceTree = "<group>"; };
+		9046A7742914A5BB008291A4 /* Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logic.h; sourceTree = "<group>"; };
+		9046A7752914A5BB008291A4 /* StorageElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageElement.h; sourceTree = "<group>"; };
+		9046A7762914A5BB008291A4 /* StorageGun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageGun.h; sourceTree = "<group>"; };
+		9046A7772914A5BB008291A4 /* InterfaceElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceElement.h; sourceTree = "<group>"; };
+		9046A7782914A5BB008291A4 /* Logic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Logic.cpp; sourceTree = "<group>"; };
 		C15451E427403CD70095997B /* effect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = effect.h; sourceTree = "<group>"; };
 		C15451E527403ED30095997B /* effect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = effect.cpp; sourceTree = "<group>"; };
 		C159391D271E278800A7F857 /* bullet.h */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.c.h; path = bullet.h; sourceTree = "<group>"; tabWidth = 3; };
@@ -74,6 +98,22 @@
 		C1D4EACA2577F487002B56E3 = {
 			isa = PBXGroup;
 			children = (
+				9046A7782914A5BB008291A4 /* Logic.cpp */,
+				9046A7742914A5BB008291A4 /* Logic.h */,
+				9046A76C2914A5BA008291A4 /* LogicElement.cpp */,
+				9046A7702914A5BA008291A4 /* LogicElement.h */,
+				9046A76D2914A5BA008291A4 /* Storage.cpp */,
+				9046A76E2914A5BA008291A4 /* Storage.h */,
+				9046A7732914A5BB008291A4 /* StorageElement.cpp */,
+				9046A7752914A5BB008291A4 /* StorageElement.h */,
+				9046A7712914A5BA008291A4 /* StorageGun.cpp */,
+				9046A7762914A5BB008291A4 /* StorageGun.h */,
+				9046A7722914A5BB008291A4 /* StorageTime.cpp */,
+				9046A76F2914A5BA008291A4 /* StorageTime.h */,
+				9046A7772914A5BB008291A4 /* InterfaceElement.h */,
+				9046A76929149F93008291A4 /* InterfaceElement.cpp */,
+				9046A76529149EEB008291A4 /* Interface.h */,
+				9046A76329149EC7008291A4 /* Interface.cpp */,
 				C16B8F532744AFD8009CC1DC /* score.h */,
 				C16B8F502744ABDE009CC1DC /* score.cpp */,
 				C15451E527403ED30095997B /* effect.cpp */,
@@ -82,12 +122,12 @@
 				C1841324273E9C4400143AB2 /* bird.h */,
 				C1841325273E9C4400143AB2 /* bullet.cpp */,
 				C1841323273E9C4400143AB2 /* game.cpp */,
+				C179F5FD2710DE0E00BD3050 /* gun.h */,
 				C1841326273E9C4500143AB2 /* gun.cpp */,
-				C1841328273E9C4900143AB2 /* skeet.h */,
 				C159391D271E278800A7F857 /* bullet.h */,
 				C16F25482716733A000FA407 /* time.cpp */,
 				C179F5FE2712254900BD3050 /* time.h */,
-				C179F5FD2710DE0E00BD3050 /* gun.h */,
+				C1841328273E9C4900143AB2 /* skeet.h */,
 				C1D4EAE22577F575002B56E3 /* skeet.cpp */,
 				C1D4EAE12577F574002B56E3 /* point.cpp */,
 				C1D4EAE42577F575002B56E3 /* point.h */,
@@ -171,6 +211,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9046A76B29149F93008291A4 /* InterfaceElement.cpp in Sources */,
+				9046A77B2914A5BB008291A4 /* StorageGun.cpp in Sources */,
+				9046A77E2914A5BB008291A4 /* Logic.cpp in Sources */,
+				9046A77A2914A5BB008291A4 /* Storage.cpp in Sources */,
+				9046A76429149EC7008291A4 /* Interface.cpp in Sources */,
+				9046A77C2914A5BB008291A4 /* StorageTime.cpp in Sources */,
 				C16B8F522744ABDE009CC1DC /* score.cpp in Sources */,
 				C1D4EAED2577F57B002B56E3 /* uiInteract.cpp in Sources */,
 				C184132A273E9C4900143AB2 /* bullet.cpp in Sources */,
@@ -181,6 +227,8 @@
 				C1841329273E9C4900143AB2 /* game.cpp in Sources */,
 				C1D4EAEB2577F57B002B56E3 /* skeet.cpp in Sources */,
 				C184132B273E9C4900143AB2 /* gun.cpp in Sources */,
+				9046A77D2914A5BB008291A4 /* StorageElement.cpp in Sources */,
+				9046A7792914A5BB008291A4 /* LogicElement.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
