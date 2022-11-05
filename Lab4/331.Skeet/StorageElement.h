@@ -10,4 +10,9 @@
 
 #include <stdio.h>
 
+class StorageElement
+{
+   
+};
+
 #endif /* StorageElement_h */

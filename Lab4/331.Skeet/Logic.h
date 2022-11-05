@@ -10,4 +10,9 @@
 
 #include <stdio.h>
 
+class Logic
+{
+   
+};
+
 #endif /* Logic_h */
