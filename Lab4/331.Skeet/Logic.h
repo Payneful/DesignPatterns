@@ -9,10 +9,27 @@
 #define Logic_h
 
 #include <stdio.h>
+#include "Storage.h"
 
 class Logic
 {
+private:
+   Storage storage;
    
+public:
+   Logic();
+   void advance();
+   void spawn();
+   void input();
+   class iterator;
+   iterator begin();
+   iterator end();
+   int getFrameLeft();
+   int getLevelNumber();
+   double getGunAngle();
+   bool isPlaying();
+   bool isGameOver();
+   double getPercentLeft();
 };
 
 #endif /* Logic_h */

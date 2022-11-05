@@ -10,4 +10,9 @@
 
 #include <stdio.h>
 
+class StorageTime
+{
+   
+};
+
 #endif /* StorageTime_h */

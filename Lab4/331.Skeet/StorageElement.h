@@ -9,8 +9,36 @@
 #define StorageElement_h
 
 #include <stdio.h>
+#include "point.h"
+#include "InterfaceElement.h"
+#include "LogicElement.h"
+
+class LogicElement;
+class InterfaceElement;
 
 class StorageElement
+{
+protected:
+   Point pt;
+   Velocity v;
+   double radius;
+   int points;
+   bool dead;
+   LogicElement* pLogic;
+   InterfaceElement* pInterface;
+};
+
+class StorageBird : public StorageElement
+{
+   
+};
+
+class StorageBullet : public StorageElement
+{
+   
+};
+
+class StorageEffects : public StorageElement
 {
    
 };

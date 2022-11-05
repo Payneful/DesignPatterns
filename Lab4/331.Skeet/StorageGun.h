@@ -10,4 +10,9 @@
 
 #include <stdio.h>
 
+class StorageGun
+{
+   
+};
+
 #endif /* StorageGun_h */

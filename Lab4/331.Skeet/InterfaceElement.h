@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include "StorageElement.h"
 
+class StorageElement;
+
 class InterfaceElement
 {
 public:
