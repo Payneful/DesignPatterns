@@ -42,6 +42,23 @@ public:
 
     // is the game currently playing right now?
     bool isPlaying() const { return time.isPlaying();  }
+
+    // Execute
+    template <typename T> void execute(void *callback,T context);
+
+    // Orders
+    void drawEffect(Effect* subject);
+    void drawBird(Bird* subject);
+    void drawBullet(Bullet* subject);
+    void drawGun(Gun subject);
+
+    void advanceEffect(Effect* subject);
+    void advanceBird(Bird* subject);
+    void advanceBullet(Bullet* subject);
+
+    void killBird(Bird* subject);
+    void killBullet(Bullet* subject);
+
 private:
     // generate new birds
     void spawn();                  

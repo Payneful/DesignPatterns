@@ -32,6 +32,48 @@ using namespace std;
 #endif // _WIN32
 
 /************************
+ * SKEET EXECUTE
+ * COMMANDER
+ ************************/
+template <typename T> void Skeet :: execute(void *callback, T context) {
+    context->callback();
+}
+
+/************************
+ * SKEET ORDERS
+ ************************/
+// Draw
+void Skeet::drawEffect(Effect* subject) {
+    subject->render();
+}
+void Skeet::drawBird(Bird* subject) {
+    subject->draw();
+}
+void Skeet::drawBullet(Bullet* subject) {
+    subject->output();
+}
+void Skeet::drawGun(Gun subject) {
+    subject.display();
+}
+// Advance
+void Skeet::advanceEffect(Effect* subject) {
+    subject->fly();
+}
+void Skeet::advanceBird(Bird* subject) {
+    subject->advance();
+}
+void Skeet::advanceBullet(Bullet* subject) {
+    subject->move();
+}
+// Kill
+void Skeet::killBird(Bird* subject) {
+    subject->kill();
+}
+void Skeet::killBullet(Bullet* subject) {
+    subject->kill();
+}
+
+/************************
  * SKEET ANIMATE
  * move the gameplay by one unit of time
  ************************/
@@ -51,7 +93,19 @@ void Skeet::animate()
    
    // spawn
    spawn();
-   
+
+   // New
+   for (auto element : birds)
+   {
+       execute(advanceBird, element);
+       hitRatio.adjust(element->isDead() ? -1 : 0);
+   }
+   for (auto bullet : bullets)
+       execute(advanceBullet, bullet);
+   for (auto effect : effects)
+       execute(advanceEffect, effect);
+
+   /*
    // move the birds and the bullets
    for (auto element : birds)
    {
@@ -62,7 +116,8 @@ void Skeet::animate()
       bullet->move(effects);
    for (auto effect : effects)
       effect->fly();
-      
+      */
+
    // hit detection
    for (auto element : birds)
       for (auto bullet : bullets)
@@ -83,7 +138,8 @@ void Skeet::animate()
       if ((*it)->isDead())
       {
          score.adjust((*it)->getPoints());
-         it = birds.erase(it);
+         execute(killBird, it);
+         //it = birds.erase(it);
       }
       else
          ++it;
@@ -93,7 +149,8 @@ void Skeet::animate()
       if ((*it)->isDead())
       {
          (*it)->death(bullets);
-         it = bullets.erase(it);
+         execute(killBird, it);
+         //it = bullets.erase(it);
       }
       else
          ++it;
@@ -249,15 +306,25 @@ void Skeet::drawLevel() const
    drawBackground(time.level() * .1, 0.0, 0.0);
    
    // output the gun
-   gun.display();
+   //gun.display();
+   execute(drawGun, gun);
          
    // output the birds, bullets, and fragments
-   for (auto effect : effects)
-      effect->render();
-   for (auto bullet : bullets)
-      bullet->output();
-   for (auto element : birds)
-      element->draw();
+   for (auto effect : effects) {
+       //effect->render();
+       execute(drawEffect, effect);
+   }
+      
+   for (auto bullet : bullets) {
+       //bullet->output();
+       execute(drawBullet, bullet);
+   }
+      
+   for (auto element : birds) {
+       //element->draw();
+       execute(drawBird, element);
+   }
+      
    
    // status
    drawText(Point(10,                         dimensions.getY() - 30), score.getText()  );
