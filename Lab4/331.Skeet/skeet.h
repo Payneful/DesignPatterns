@@ -44,20 +44,34 @@ public:
     bool isPlaying() const { return time.isPlaying();  }
 
     // Execute
-    template <typename T> void execute(void *callback,T context);
+    template <typename T> void execute(void *callback, T context);
 
     // Orders
-    void drawEffect(Effect* subject);
-    void drawBird(Bird* subject);
-    void drawBullet(Bullet* subject);
-    void drawGun(Gun subject);
+    void *drawEffect(Effect* subject);
+    void *drawBird(Bird* subject);
+    void *drawBullet(Bullet* subject);
+    void *drawGun(Gun subject);
 
-    void advanceEffect(Effect* subject);
-    void advanceBird(Bird* subject);
-    void advanceBullet(Bullet* subject);
+    void *advanceEffect(Effect* subject);
+    void *advanceBird(Bird* subject);
+    void *advanceBullet(Bullet* subject);
 
-    void killBird(Bird* subject);
-    void killBullet(Bullet* subject);
+    void *killBird(Bird* subject);
+    void *killBullet(Bullet* subject);
+    /*
+    // Function Pointers
+    void (*drawEffect)(Effect);
+    void (*drawBird)(Bird);
+    void (*drawBullet)(Bullet);
+    void (*drawGun)(Gun);
+
+    void (*advanceBird)(Bird);
+    void (*advanceEffect)(Effect);
+    void (*advanceBullet)(Bullet);
+
+    void (*killBird)(Bird);
+    void (*killBullet)(Bullet);
+    */
 
 private:
     // generate new birds

@@ -1,0 +1,65 @@
+﻿  bird.cpp
+  bullet.cpp
+  effect.cpp
+  game.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(63,12): error C2365: 'Skeet::drawEffect': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(50): message : see declaration of 'Skeet::drawEffect'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(64,12): error C2365: 'Skeet::drawBird': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(51): message : see declaration of 'Skeet::drawBird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(65,12): error C2365: 'Skeet::drawBullet': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(52): message : see declaration of 'Skeet::drawBullet'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(66,12): error C2365: 'Skeet::drawGun': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(53): message : see declaration of 'Skeet::drawGun'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(68,12): error C2365: 'Skeet::advanceBird': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(56): message : see declaration of 'Skeet::advanceBird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(69,12): error C2365: 'Skeet::advanceEffect': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(55): message : see declaration of 'Skeet::advanceEffect'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(70,12): error C2365: 'Skeet::advanceBullet': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(57): message : see declaration of 'Skeet::advanceBullet'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(72,12): error C2365: 'Skeet::killBird': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(59): message : see declaration of 'Skeet::killBird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(73,12): error C2365: 'Skeet::killBullet': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(60): message : see declaration of 'Skeet::killBullet'
+  gun.cpp
+  point.cpp
+  score.cpp
+  skeet.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(63,12): error C2365: 'Skeet::drawEffect': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(50): message : see declaration of 'Skeet::drawEffect'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(64,12): error C2365: 'Skeet::drawBird': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(51): message : see declaration of 'Skeet::drawBird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(65,12): error C2365: 'Skeet::drawBullet': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(52): message : see declaration of 'Skeet::drawBullet'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(66,12): error C2365: 'Skeet::drawGun': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(53): message : see declaration of 'Skeet::drawGun'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(68,12): error C2365: 'Skeet::advanceBird': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(56): message : see declaration of 'Skeet::advanceBird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(69,12): error C2365: 'Skeet::advanceEffect': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(55): message : see declaration of 'Skeet::advanceEffect'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(70,12): error C2365: 'Skeet::advanceBullet': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(57): message : see declaration of 'Skeet::advanceBullet'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(72,12): error C2365: 'Skeet::killBird': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(59): message : see declaration of 'Skeet::killBird'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(73,12): error C2365: 'Skeet::killBullet': redefinition; previous definition was 'member function'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(60): message : see declaration of 'Skeet::killBullet'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(101,27): error C3867: 'Skeet::advanceBird': non-standard syntax; use '&' to create a pointer to member
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(101,8): error C2672: 'Skeet::execute': no matching overloaded function found
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(105,29): error C3867: 'Skeet::advanceBullet': non-standard syntax; use '&' to create a pointer to member
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(105,8): error C2672: 'Skeet::execute': no matching overloaded function found
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(107,29): error C3867: 'Skeet::advanceEffect': non-standard syntax; use '&' to create a pointer to member
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(107,8): error C2672: 'Skeet::execute': no matching overloaded function found
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(142,26): error C3867: 'Skeet::killBird': non-standard syntax; use '&' to create a pointer to member
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(142,10): error C2672: 'Skeet::execute': no matching overloaded function found
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(153,28): error C3867: 'Skeet::killBullet': non-standard syntax; use '&' to create a pointer to member
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(153,10): error C2672: 'Skeet::execute': no matching overloaded function found
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(311,19): error C3867: 'Skeet::drawGun': non-standard syntax; use '&' to create a pointer to member
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(311,4): error C2672: 'Skeet::execute': no matching overloaded function found
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(316,26): error C3867: 'Skeet::drawEffect': non-standard syntax; use '&' to create a pointer to member
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(316,8): error C2672: 'Skeet::execute': no matching overloaded function found
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(321,26): error C3867: 'Skeet::drawBullet': non-standard syntax; use '&' to create a pointer to member
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(321,8): error C2672: 'Skeet::execute': no matching overloaded function found
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(326,24): error C3867: 'Skeet::drawBird': non-standard syntax; use '&' to create a pointer to member
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(326,8): error C2672: 'Skeet::execute': no matching overloaded function found
+  time.cpp
+  uiInteract.cpp
+  Generating Code...

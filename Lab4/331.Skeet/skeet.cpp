@@ -43,33 +43,33 @@ template <typename T> void Skeet :: execute(void *callback, T context) {
  * SKEET ORDERS
  ************************/
 // Draw
-void Skeet::drawEffect(Effect* subject) {
+void *Skeet::drawEffect(Effect* subject) {
     subject->render();
 }
-void Skeet::drawBird(Bird* subject) {
+void *Skeet::drawBird(Bird* subject) {
     subject->draw();
 }
-void Skeet::drawBullet(Bullet* subject) {
+void *Skeet::drawBullet(Bullet* subject) {
     subject->output();
 }
-void Skeet::drawGun(Gun subject) {
+void *Skeet::drawGun(Gun subject) {
     subject.display();
 }
 // Advance
-void Skeet::advanceEffect(Effect* subject) {
+void *Skeet::advanceEffect(Effect* subject) {
     subject->fly();
 }
-void Skeet::advanceBird(Bird* subject) {
+void *Skeet::advanceBird(Bird* subject) {
     subject->advance();
 }
-void Skeet::advanceBullet(Bullet* subject) {
-    subject->move();
+void *Skeet::advanceBullet(Bullet* subject) {
+    subject->move(effects);
 }
 // Kill
-void Skeet::killBird(Bird* subject) {
+void *Skeet::killBird(Bird* subject) {
     subject->kill();
 }
-void Skeet::killBullet(Bullet* subject) {
+void *Skeet::killBullet(Bullet* subject) {
     subject->kill();
 }
 
@@ -149,7 +149,7 @@ void Skeet::animate()
       if ((*it)->isDead())
       {
          (*it)->death(bullets);
-         execute(killBird, it);
+         execute(killBullet, it);
          //it = bullets.erase(it);
       }
       else
