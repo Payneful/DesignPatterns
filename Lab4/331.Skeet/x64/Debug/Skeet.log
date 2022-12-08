@@ -1,0 +1,48 @@
+﻿  Draw.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(54,10): error C3646: 'dr': unknown override specifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.h(54,12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.h(36,50): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.h(36,50): error C2143: syntax error: missing ',' before '&'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.cpp(16,22): error C2065: 'dimensions': undeclared identifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.cpp(17,22): error C2065: 'dimensions': undeclared identifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.cpp(17,50): error C2065: 'dimensions': undeclared identifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.cpp(17,67): error C2660: 'glVertex2f': function does not take 1 arguments
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\GL\gl.h(1469,25): message : see declaration of 'glVertex2f'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.cpp(18,36): error C2065: 'dimensions': undeclared identifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.cpp(18,53): error C2660: 'glVertex2f': function does not take 1 arguments
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\GL\gl.h(1469,25): message : see declaration of 'glVertex2f'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.cpp(36,31): error C2065: 'dimensions': undeclared identifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.cpp(132,55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.cpp(132,55): error C2143: syntax error: missing ',' before '&'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.cpp(134,23): error C2065: 'text': undeclared identifier
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.cpp(134,35): error C2661: 'Draw::drawText': no overloaded function takes 1 arguments
+  effect.cpp
+  game.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.h(36,50): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.h(36,50): error C2143: syntax error: missing ',' before '&'
+  gun.cpp
+  skeet.cpp
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.h(36,50): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.h(36,50): error C2143: syntax error: missing ',' before '&'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(124,1): error C2511: 'void Draw::drawText(const Point &,const std::string &)': overloaded member function not found in 'Draw'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\Draw.h(29): message : see declaration of 'Draw'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(125,5): error C2352: 'Draw::drawText': illegal call of non-static member function
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(111): message : see declaration of 'Draw::drawText'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(151,8): error C2664: 'void Draw::drawText(const Point &,const char *)': cannot convert argument 2 from 'std::string' to 'const char *'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(151,92): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(111,12): message : see declaration of 'Draw::drawText'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(152,8): error C2664: 'void Draw::drawText(const Point &,const char *)': cannot convert argument 2 from 'std::string' to 'const char *'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(152,91): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(111,12): message : see declaration of 'Draw::drawText'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(153,8): error C2664: 'void Draw::drawText(const Point &,const char *)': cannot convert argument 2 from 'std::string' to 'const char *'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(153,95): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(111,12): message : see declaration of 'Draw::drawText'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(171,11): error C2664: 'void Draw::drawText(const Point &,const char *)': cannot convert argument 2 from 'std::string' to 'const char *'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(172,29): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(111,12): message : see declaration of 'Draw::drawText'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(184,11): error C2664: 'void Draw::drawText(const Point &,const char *)': cannot convert argument 2 from 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' to 'const char *'
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(185,18): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\jacob\Documents\GitHub\DesignPatterns\Lab4\331.Skeet\skeet.cpp(111,12): message : see declaration of 'Draw::drawText'
+  time.cpp
+  uiInteract.cpp
+  Generating Code...
